@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apuntes de Dart – Fundamentos</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+  <div class="max-w-4xl mx-auto px-4 py-8">
+
+    <!-- Header -->
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-indigo-700">Apuntes de Dart – Fundamentos</h1>
+      <p class="text-gray-600 mt-2">Guía esencial para aprender Dart: desde variables hasta programación orientada a objetos</p>
+    </header>
+
+    <!-- Table of Contents -->
+    <nav class="bg-white p-5 rounded-lg shadow mb-10">
+      <h2 class="text-xl font-semibold text-gray-800 mb-3">Tabla de contenido</h2>
+      <ul class="list-disc pl-5 space-y-1 text-gray-700">
+        <li><a href="#intro" class="hover:text-indigo-600 transition">1. Introducción a Dart</a></li>
+        <li><a href="#variables" class="hover:text-indigo-600 transition">2. Variables</a></li>
+        <li><a href="#entrada" class="hover:text-indigo-600 transition">3. Entrada de Datos (desde consola)</a></li>
+        <li><a href="#condicionales" class="hover:text-indigo-600 transition">4. Estructuras Condicionales</a></li>
+        <li><a href="#bucles-control" class="hover:text-indigo-600 transition">5. Operadores</a></li>
+        <li><a href="#funciones" class="hover:text-indigo-600 transition">6. Funciones</a></li>
+        <li><a href="#listas" class="hover:text-indigo-600 transition">7. Listas</a></li>
+        <li><a href="#sets" class="hover:text-indigo-600 transition">8. Sets (conjuntos)</a></li>
+        <li><a href="#map" class="hover:text-indigo-600 transition">9. Map (diccionarios)</a></li>
+        <li><a href="#bucles" class="hover:text-indigo-600 transition">10. Bucles</a></li>
+        <li><a href="#poo" class="hover:text-indigo-600 transition">11. Clases y POO</a></li>
+        <li><a href="#nulabilidad" class="hover:text-indigo-600 transition">12. Nulabilidad (Null Safety)</a></li>
+      </ul>
+    </nav>
+
+    <!-- Section 1 -->
+    <section id="intro" class="mb-12 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold text-indigo-600 mb-4">1. Introducción a Dart</h2>
+      <p class="mb-4">
+        Dart es un lenguaje de programación moderno, desarrollado por Google, fuertemente tipado pero con soporte para inferencia de tipos. Se utiliza sobre todo en <strong>Flutter</strong> para desarrollo multiplataforma, aunque también sirve para backend y aplicaciones de consola.
+      </p>
+      <h3 class="text-lg font-semibold mt-4 mb-2">Características principales:</h3>
+      <ul class="list-disc pl-5 space-y-1 mb-4">
+        <li>Sintaxis similar a C/Java.</li>
+        <li>Orientado a objetos.</li>
+        <li>Soporte para programación asíncrona (<code class="bg-gray-100 px-1 rounded">async</code> / <code class="bg-gray-100 px-1 rounded">await</code>).</li>
+        <li>Tipado estático pero flexible (inferencia de tipos).</li>
+        <li>Soporte para nulabilidad segura (null safety).</li>
+      </ul>
+      <p class="mb-3"><strong>Probar y practicar con los ejemplos</strong></p>
+      <p class="mb-3">Puedes usar <strong>Dartpad</strong> pero se quedará corto cuando deseemos importar paquetes, así que te propongo 2 soluciones:</p>
+      <div class="bg-blue-50 p-4 rounded-lg">
+        <h4 class="font-semibold text-blue-800 mb-2">OPCIÓN 1. Replit</h4>
+        <ul class="list-disc pl-5 space-y-1 text-blue-800 text-sm">
+          <li>Replit ejecuta tu código en un entorno de servidor real (no en el navegador como DartPad).</li>
+          <li>Eso significa que sí soporta <code class="bg-blue-100 px-1 rounded">dart:io</code>, incluyendo: <code>stdin.readLineSync()</code> → para leer entrada del usuario.</li>
+          <li><code>File</code> → para leer/escribir archivos. <code>Process</code>, <code>HttpClient</code>, etc.</li>
+          <li>No necesitas instalar nada en tu computadora (todo está en la nube).</li>
+          <li>Es gratis para uso básico (con cuenta de Replit).</li>
+        </ul>
+        <p class="mt-3"><strong>🔧 Cómo usar Dart en Replit</strong></p>
+        <ol class="list-decimal pl-5 space-y-1 text-sm">
+          <li>Ve a <a href="https://replit.com" target="_blank" class="text-blue-600 hover:underline">https://replit.com</a></li>
+          <li>Crea una cuenta (o inicia sesión).</li>
+          <li>Haz clic en <strong>+ Create Repl</strong> (o "New repl").</li>
+          <li>Busca "Dart" en el buscador de lenguajes.</li>
+          <li>Selecciona el template "Dart".</li>
+        </ol>
+      </div>
+      <div class="bg-green-50 p-4 rounded-lg mt-4">
+        <h4 class="font-semibold text-green-800 mb-2">OPCIÓN 2. Instalar Flutter en tu equipo (nos servirá más adelante)</h4>
+        <p class="text-green-800 text-sm">Ver vídeo</p>
+      </div>
+    </section>
+
+    <!-- Section 2 -->
+    <section id="variables" class="mb-12 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold text-indigo-600 mb-4">2. Variables</h2>
+      <p class="mb-4">
+        En Dart, una variable es un espacio en memoria donde se almacena un valor. El lenguaje permite declarar variables de diferentes maneras según el nivel de estrictitud y el momento en que se conoce el tipo del dato.
+      </p>
+
+      <h3 class="text-lg font-semibold mt-5 mb-2">2.1 Declaración con tipo explícito</h3>
+      <p>Dart permite especificar directamente el tipo de dato que contendrá la variable. Esto mejora la claridad del código y evita errores.</p>
+      <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+        int edad = 20;
+      </div>
+      <ul class="list-disc pl-5 space-y-1 mb-4 text-sm">
+        <li><code>int</code> indica que la variable solo podrá almacenar números enteros.</li>
+        <li>El tipo explícito ayuda al compilador a detectar asignaciones incorrectas.</li>
+      </ul>
+
+      <h3 class="text-lg font-semibold mt-5 mb-2">2.2 Declaración con inferencia de tipo (<code>var</code>)</h3>
+      <p>Cuando se utiliza <code>var</code>, Dart determina automáticamente el tipo de la variable a partir del valor asignado.</p>
+      <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+        var nombre = "Ana";
+      </div>
+      <ul class="list-disc pl-5 space-y-1 mb-4 text-sm">
+        <li>El compilador infiere que <code>nombre</code> es un <code>String</code>.</li>
+        <li>Una vez inferido, el tipo no puede cambiar.</li>
+      </ul>
+
+      <h3 class="text-lg font-semibold mt-5 mb-2">2.3 Constantes: <code>const</code> y <code>final</code></h3>
+      <p>Dart ofrece dos palabras clave para definir valores que no cambiarán:</p>
+      <div class="mt-3">
+        <p><strong><code>const</code> – Constantes en tiempo de compilación</strong></p>
+        <div class="bg-gray-800 text-green-400 p-4 rounded my-2 font-mono text-sm overflow-x-auto">
+          const double pi = 3.1416;
+        </div>
+        <ul class="list-disc pl-5 space-y-1 text-sm mb-3">
+          <li>El valor debe ser conocido antes de ejecutar el programa.</li>
+          <li>Útil para valores completamente inmutables.</li>
+        </ul>
+        <p><strong><code>final</code> – Constantes en tiempo de ejecución</strong></p>
+        <div class="bg-gray-800 text-green-400 p-4 rounded my-2 font-mono text-sm overflow-x-auto">
+          final fecha = DateTime.now();
+        </div>
+        <ul class="list-disc pl-5 space-y-1 text-sm">
+          <li>Su valor se asigna una sola vez, pero puede calcularse durante la ejecución.</li>
+          <li>Ideal para valores dinámicos pero inmutables.</li>
+        </ul>
+      </div>
+
+      <h3 class="text-lg font-semibold mt-5 mb-2">2.4 Ejemplo completo</h3>
+      <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+        <pre>void main() {
+  // Declaración con tipo explícito
+  int edad = 20;
+  // Declaración con inferencia de tipo
+  var nombre = "Ana";
+  // Constantes
+  const double pi = 3.1416; // tiempo de compilación
+  final fecha = DateTime.now(); // tiempo de ejecución
+  print("Edad: $edad, Nombre: $nombre, Pi: $pi, Fecha: $fecha");
+}</pre>
+      </div>
+      <div class="bg-yellow-50 p-3 rounded text-sm mt-2">
+        <strong>Nota:</strong>
+        <ul class="list-disc pl-5 mt-1">
+          <li><code>var</code> → infiere el tipo.</li>
+          <li><code>const</code> → valor fijo en compilación.</li>
+          <li><code>final</code> → valor fijo en tiempo de ejecución.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Section 3: Entrada de datos -->
+  <section id="entrada" class="mb-12 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold text-indigo-600 mb-4">3. Entrada de Datos (desde consola)</h2>
+  
+  <p class="text-gray-700 mb-4">
+    En Dart, para leer datos desde la consola (entrada estándar), se utiliza la librería 
+    <code class="bg-gray-100 px-1 rounded">dart:io</code>, específicamente la propiedad 
+    <code class="bg-gray-100 px-1 rounded">stdin</code>.
+  </p>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Lectura básica de texto</h3>
+  <p class="text-gray-700 mb-3">
+    El método <code class="bg-gray-100 px-1 rounded">readLineSync()</code> lee una línea completa introducida por el usuario
+    y devuelve un <code class="bg-gray-100 px-1 rounded">String?</code> (puede ser <code>null</code> si no hay datos).
+  </p>
+  <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm mb-6">
+<code class="language-dart">import 'dart:io';
+
+void main() {
+  print("Introduce tu nombre:");
+  String? nombre = stdin.readLineSync();
+  print("Hola, \$nombre!");
+}</code>
+  </pre>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Conversión a otros tipos</h3>
+  <p class="text-gray-700 mb-3">
+    Como <code>readLineSync()</code> devuelve un <code>String?</code>, es común convertirlo a otros tipos
+    como <code>int</code>, <code>double</code>, etc. Es importante manejar posibles errores con <code>try-catch</code>.
+  </p>
+  <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto text-sm mb-6">
+<code class="language-dart">import 'dart:io';
+
+void main() {
+  print("Introduce tu edad:");
+  String? input = stdin.readLineSync();
+  
+  if (input != null) {
+    try {
+      int edad = int.parse(input.trim());
+      print("Tienes \$edad años.");
+    } catch (e) {
+      print("Entrada no válida. Por favor, introduce un número entero.");
+    }
+  }
+}</code>
+  </pre>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Notas importantes</h3>
+  <ul class="list-disc pl-5 text-gray-700 space-y-2">
+    <li>
+      <code class="bg-gray-100 px-1 rounded">readLineSync()</code> devuelve <code>null</code> si se alcanza el final del flujo de entrada (por ejemplo, al presionar Ctrl+D en Unix o Ctrl+Z en Windows).
+    </li>
+    <li>
+      Siempre es buena práctica verificar que el valor no sea <code>null</code> antes de usarlo.
+    </li>
+    <li>
+      Usa <code class="bg-gray-100 px-1 rounded">.trim()</code> para eliminar espacios innecesarios al principio o al final de la entrada.
+    </li>
+    <li>
+      La interpolación de cadenas con <code>\$variable</code> facilita la inclusión de valores en mensajes.
+    </li>
+  </ul>
+    </section>
+
+
+    <!-- Section 4 -->
+<section id="condicionales" class="mb-12 bg-white p-6 rounded-lg shadow">
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">4. Estructuras Condicionales</h2>
+
+  <p class="text-gray-700 mb-4">
+    Las estructuras condicionales permiten ejecutar diferentes bloques de código según se cumpla o no una condición.
+    Dart admite las instrucciones <code class="bg-gray-100 px-1 rounded">if</code>, <code class="bg-gray-100 px-1 rounded">else if</code>, 
+    <code class="bg-gray-100 px-1 rounded">else</code>, y el operador ternario para expresiones condicionales.
+  </p>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Condicional <code class="bg-gray-100 px-1 rounded">if-else</code></h3>
+  <p class="text-gray-700 mb-3">
+    La estructura básica evalúa una expresión booleana. Si es <code>true</code>, se ejecuta el bloque <code>if</code>;
+    de lo contrario, se ejecuta el bloque <code>else</code> (si está presente).
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>void main() {
+  int edad = 18;
+  if (edad >= 18) {
+    print("Eres mayor de edad.");
+  } else {
+    print("Eres menor de edad.");
+  }
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Operador ternario</h3>
+  <p class="text-gray-700 mb-3">
+    El operador ternario es una forma concisa de asignar un valor basado en una condición. 
+    Sintaxis: <code class="bg-gray-100 px-1 rounded">condición ? valorSiTrue : valorSiFalse</code>.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>// Operador ternario
+String permiso = edad >= 18 ? "Permitido" : "Denegado";
+print("Acceso: \$permiso");</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Múltiples condiciones con <code class="bg-gray-100 px-1 rounded">else if</code></h3>
+  <p class="text-gray-700 mb-3">
+    Puedes encadenar varias condiciones para manejar múltiples casos.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>int calificacion = 85;
+
+if (calificacion >= 90) {
+  print("Excelente");
+} else if (calificacion >= 70) {
+  print("Aprobado");
+} else if (calificacion >= 50) {
+  print("Aprobado con dificultad");
+} else {
+  print("Reprobado");
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Condiciones con operadores lógicos</h3>
+  <p class="text-gray-700 mb-3">
+    Puedes combinar condiciones usando <code>&&</code> (AND), <code>||</code> (OR) y <code>!</code> (NOT).
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>int edad = 20;
+bool tieneLicencia = true;
+
+if (edad >= 18 && tieneLicencia) {
+  print("Puede conducir legalmente.");
+} else if (edad >= 18 && !tieneLicencia) {
+  print("Es mayor de edad, pero necesita licencia.");
+} else {
+  print("No puede conducir.");
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Notas importantes</h3>
+  <ul class="list-disc pl-5 text-gray-700 space-y-2">
+    <li>
+      En Dart, solo los valores booleanos (<code>true</code> o <code>false</code>) son válidos en condiciones.
+      No se consideran "falsos" valores como <code>0</code>, <code>""</code> o <code>null</code> (a diferencia de otros lenguajes).
+    </li>
+    <li>
+      Si omites las llaves <code>{}</code> en un bloque <code>if</code>, solo se ejecutará la siguiente línea.
+      Por legibilidad y seguridad, se recomienda siempre usar llaves.
+    </li>
+    <li>
+      El operador ternario debe tener ambos lados definidos; no se puede omitir la parte <code>: valorSiFalse</code>.
+    </li>
+  </ul>
+</section>
+   <!-- Section 15 -->
+<section id="bucles-control" class="mb-12 bg-white p-6 rounded-lg shadow">
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">5. Bucles y Estructuras de Control</h2>
+
+  <p class="text-gray-700 mb-4">
+    Dart ofrece varias estructuras para controlar el flujo de ejecución: bucles para repetir tareas
+    (<code class="bg-gray-100 px-1 rounded">for</code>, <code class="bg-gray-100 px-1 rounded">while</code>, <code class="bg-gray-100 px-1 rounded">do-while</code>)
+    y la instrucción <code class="bg-gray-100 px-1 rounded">switch</code> para tomar decisiones múltiples basadas en un valor.
+  </p>
+
+  <!-- For loop -->
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Bucle <code class="bg-gray-100 px-1 rounded">for</code></h3>
+  <p class="text-gray-700 mb-3">
+    Ideal para iterar un número conocido de veces. La sintaxis clásica incluye inicialización, condición y actualización.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>for (int i = 0; i &lt; 5; i++) {
+  print("Iteración \$i");
+}</pre>
+  </div>
+
+  <p class="text-gray-700 mb-3">
+    Dart también soporta el bucle <code>for-in</code> para recorrer colecciones como listas.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>List&lt;String&gt; frutas = ['manzana', 'plátano', 'naranja'];
+for (String fruta in frutas) {
+  print("Me gusta la \$fruta");
+}</pre>
+  </div>
+
+  <!-- While loop -->
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Bucle <code class="bg-gray-100 px-1 rounded">while</code></h3>
+  <p class="text-gray-700 mb-3">
+    Ejecuta un bloque de código mientras una condición sea <code>true</code>.
+    La condición se evalúa antes de cada iteración.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>int contador = 3;
+while (contador > 0) {
+  print("Cuenta regresiva: \$contador");
+  contador--;
+}</pre>
+  </div>
+
+  <p class="text-gray-700 mb-3">
+    El bucle <code>do-while</code> es similar, pero garantiza que el bloque se ejecute al menos una vez,
+    ya que la condición se evalúa al final.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>int intentos = 0;
+do {
+  print("Intento número \${intentos + 1}");
+  intentos++;
+} while (intentos < 3);</pre>
+  </div>
+
+  <!-- Switch statement -->
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Instrucción <code class="bg-gray-100 px-1 rounded">switch</code></h3>
+  <p class="text-gray-700 mb-3">
+    Permite comparar un valor contra múltiples casos. Dart requiere que los casos sean constantes
+    (como literales o valores <code>const</code>).
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>String dia = "lunes";
+
+switch (dia) {
+  case "lunes":
+    print("Inicio de la semana");
+    break;
+  case "viernes":
+    print("Fin de la semana laboral");
+    break;
+  case "sábado":
+  case "domingo":
+    print("Fin de semana");
+    break;
+  default:
+    print("Día entre semana");
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Notas importantes</h3>
+  <ul class="list-disc pl-5 text-gray-700 space-y-2">
+    <li>
+      En Dart, <code>switch</code> no permite "caída" (<i>fall-through</i>) entre casos, excepto si el caso está vacío
+      (como <code>case "sábado":</code> seguido inmediatamente de <code>case "domingo":</code>).
+    </li>
+    <li>
+      Siempre incluye <code>break</code>, <code>return</code> o <code>continue</code> al final de un caso no vacío;
+      de lo contrario, el código no compilará.
+    </li>
+    <li>
+      Los bucles <code>for-in</code> son ideales para colecciones, pero no permiten modificar la colección durante la iteración.
+    </li>
+    <li>
+      Usa <code>while</code> cuando no sepas cuántas iteraciones necesitarás (por ejemplo, lectura de datos hasta que el usuario escriba "salir").
+    </li>
+  </ul>
+</section>
+
+    <!-- Section 6 -->
+    <!-- Section 6 -->
+<section id="funciones" class="mb-12 bg-white p-6 rounded-lg shadow">
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">6. Funciones</h2>
+
+  <p class="text-gray-700 mb-4">
+    Las funciones en Dart son bloques de código reutilizables que pueden recibir parámetros y devolver un valor.
+    Dart es un lenguaje con tipado estático, por lo que se recomienda especificar los tipos de los parámetros y del valor de retorno.
+  </p>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Función básica con retorno</h3>
+  <p class="text-gray-700 mb-3">
+    Una función típica declara el tipo de retorno, nombre, parámetros y cuerpo con llaves.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>// Función con parámetros y retorno
+int sumar(int a, int b) {
+  return a + b;
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Funciones flecha (<i>arrow functions</i>)</h3>
+  <p class="text-gray-700 mb-3">
+    Cuando el cuerpo de la función es una sola expresión, puedes usar la sintaxis de flecha (<code>=></code>).
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>// Función flecha (equivalente a la anterior)
+int multiplicar(int a, int b) => a * b;</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Parámetros opcionales</h3>
+  <p class="text-gray-700 mb-3">
+    Dart admite dos tipos de parámetros opcionales: <strong>nombrados</strong> y <strong>posicionales</strong>.
+  </p>
+
+  <h4 class="text-md font-medium text-gray-700 mt-3">Parámetros nombrados (entre llaves <code>{}</code>)</h4>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>void saludar({String nombre = "Invitado", int edad = 0}) {
+  print("Hola \$nombre, tienes \$edad años.");
+}
+
+// Uso
+saludar(nombre: "Ana", edad: 25);
+saludar(nombre: "Luis"); // edad usará valor por defecto
+saludar(); // usa ambos valores por defecto</pre>
+  </div>
+
+  <h4 class="text-md font-medium text-gray-700 mt-3">Parámetros posicionales opcionales (entre corchetes <code>[]</code>)</h4>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>String formatearNombre(String nombre, [String? apellido]) {
+  if (apellido != null) {
+    return "\$nombre \$apellido";
+  }
+  return nombre;
+}
+
+// Uso
+print(formatearNombre("María"));           // "María"
+print(formatearNombre("Carlos", "Ruiz"));  // "Carlos Ruiz"</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Funciones como ciudadanos de primera clase</h3>
+  <p class="text-gray-700 mb-3">
+    En Dart, las funciones se pueden asignar a variables, pasar como argumentos o devolver desde otras funciones.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>int operacion(int a, int b, Function(int, int) fn) {
+  return fn(a, b);
+}
+
+int restar(int x, int y) => x - y;
+
+void main() {
+  int resultado = operacion(10, 3, restar);
+  print(resultado); // 7
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Funciones anónimas</h3>
+  <p class="text-gray-700 mb-3">
+    Útiles para callbacks o funciones de corta duración. No tienen nombre.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>void main() {
+  List&lt;int&gt; numeros = [1, 2, 3];
+  numeros.forEach((n) => print(n * 2)); // 2, 4, 6
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Notas importantes</h3>
+  <ul class="list-disc pl-5 text-gray-700 space-y-2">
+    <li>
+      Si una función no devuelve un valor, se declara con <code>void</code>.
+    </li>
+    <li>
+      Los parámetros nombrados son opcionales por defecto, pero puedes hacerlos obligatorios usando <code>required</code> (desde Dart 2.12+ con nulabilidad).
+    </li>
+    <li>
+      Las funciones flecha no usan llaves ni la palabra <code>return</code>; la expresión se devuelve automáticamente.
+    </li>
+    <li>
+      Puedes combinar parámetros obligatorios, posicionales opcionales y nombrados, pero deben aparecer en este orden:  
+      <code>func(a, [b], {c})</code>.
+    </li>
+  </ul>
+</section>
+
+    <!-- Section 8 -->
+    <section id="sets" class="mb-12 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold text-indigo-600 mb-4">8. Sets (conjuntos)</h2>
+      <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+        <pre>void main() {
+  Set&lt;int&gt; numeros = {1, 2, 3, 3, 4};
+  print(numeros); // No admite duplicados
+  numeros.add(5);
+  numeros.remove(2);
+  print(numeros);
+}</pre>
+      </div>
+    </section>
+
+    <!-- Section 9 -->
+    <section id="map" class="mb-12 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold text-indigo-600 mb-4">9. Map (diccionarios)</h2>
+      <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+        <pre>void main() {
+  Map&lt;String, String&gt; capitales = {
+    "España": "Madrid",
+    "Francia": "París",
+    "Italia": "Roma"
+  };
+  print(capitales["España"]);
+  capitales["Portugal"] = "Lisboa";
+  capitales.forEach((pais, capital) {
+    print("$pais → $capital");
+  });
+}</pre>
+      </div>
+    </section>
+
+ 
+
+    <!-- Section 12 -->
+    <section id="nulabilidad" class="mb-12 bg-white p-6 rounded-lg shadow">
+      <h2 class="text-2xl font-bold text-indigo-600 mb-4">12. Nulabilidad (Null Safety)</h2>
+      <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+        <pre>void main() {
+  // Variable nullable
+  String? nombre;
+  // Usando el operador null-coalescing (??)
+  print(nombre ?? "Desconocido");
+  // Asignación condicional
+  nombre = "Laura";
+  print(nombre?.toUpperCase());
+}</pre>
+      </div>
+      <div class="bg-yellow-50 p-3 rounded text-sm mt-3">
+        <strong>🔑 Notas:</strong>
+        <ul class="list-disc pl-5 mt-1">
+          <li><code>String?</code> → puede ser <code>null</code>.</li>
+          <li><code>??</code> → valor por defecto si es <code>null</code>.</li>
+          <li><code>?.</code> → evita error si la variable es <code>null</code>.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-gray-500 text-sm mt-12">
+      <p>Apuntes de Dart – Fundamentos | Generado con Tailwind CSS</p>
+    </footer>
+  </div>
+</body>
+</html>
+
