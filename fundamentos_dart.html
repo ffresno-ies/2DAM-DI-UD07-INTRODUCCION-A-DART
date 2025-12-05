@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+    
   <div class="max-w-4xl mx-auto px-4 py-8">
 
     <!-- Header -->
@@ -24,14 +25,13 @@
         <li><a href="#variables" class="hover:text-indigo-600 transition">2. Variables</a></li>
         <li><a href="#entrada" class="hover:text-indigo-600 transition">3. Entrada de Datos (desde consola)</a></li>
         <li><a href="#condicionales" class="hover:text-indigo-600 transition">4. Estructuras Condicionales</a></li>
-        <li><a href="#bucles-control" class="hover:text-indigo-600 transition">5. Operadores</a></li>
+        <li><a href="#bucles-control" class="hover:text-indigo-600 transition">5. Bucles y estructuras de control</a></li>
         <li><a href="#funciones" class="hover:text-indigo-600 transition">6. Funciones</a></li>
-        <li><a href="#listas" class="hover:text-indigo-600 transition">7. Listas</a></li>
-        <li><a href="#sets" class="hover:text-indigo-600 transition">8. Sets (conjuntos)</a></li>
-        <li><a href="#map" class="hover:text-indigo-600 transition">9. Map (diccionarios)</a></li>
-        <li><a href="#bucles" class="hover:text-indigo-600 transition">10. Bucles</a></li>
-        <li><a href="#poo" class="hover:text-indigo-600 transition">11. Clases y POO</a></li>
-        <li><a href="#nulabilidad" class="hover:text-indigo-600 transition">12. Nulabilidad (Null Safety)</a></li>
+        <li><a href="#sets" class="hover:text-indigo-600 transition">7. Sets (conjuntos)</a></li>
+        <li><a href="#map" class="hover:text-indigo-600 transition">8. Map (diccionarios)</a></li>
+        <li><a href="#nulabilidad" class="hover:text-indigo-600 transition">9. Nulabilidad</a></li>
+        <li><a href="#clases-poo" class="hover:text-indigo-600 transition">10. Clases y POO</a></li>
+        <li><a href="#ejercicios" class="hover:text-indigo-600 transition">11. Ejercicios de prueba</a></li>
       </ul>
     </nav>
 
@@ -508,63 +508,621 @@ void main() {
 </section>
 
     <!-- Section 8 -->
-    <section id="sets" class="mb-12 bg-white p-6 rounded-lg shadow">
-      <h2 class="text-2xl font-bold text-indigo-600 mb-4">8. Sets (conjuntos)</h2>
-      <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
-        <pre>void main() {
+<section id="sets" class="mb-12 bg-white p-6 rounded-lg shadow">
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">7. Sets (conjuntos)</h2>
+
+  <p class="text-gray-700 mb-4">
+    Un <code class="bg-gray-100 px-1 rounded">Set</code> en Dart es una colección no ordenada de elementos <strong>únicos</strong>.
+    No permite duplicados, y el orden de los elementos no está garantizado.
+  </p>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Creación y características básicas</h3>
+  <p class="text-gray-700 mb-3">
+    Puedes crear un <code>Set</code> usando llaves <code>{}</code> o el constructor <code>Set()</code>.
+    Los elementos duplicados se ignoran automáticamente.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>void main() {
   Set&lt;int&gt; numeros = {1, 2, 3, 3, 4};
-  print(numeros); // No admite duplicados
+  print(numeros); // {1, 2, 3, 4} → sin duplicados
   numeros.add(5);
   numeros.remove(2);
-  print(numeros);
+  print(numeros); // {1, 3, 4, 5}
 }</pre>
-      </div>
-    </section>
+  </div>
 
-    <!-- Section 9 -->
-    <section id="map" class="mb-12 bg-white p-6 rounded-lg shadow">
-      <h2 class="text-2xl font-bold text-indigo-600 mb-4">9. Map (diccionarios)</h2>
-      <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
-        <pre>void main() {
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Métodos comunes de <code>Set</code></h3>
+  <p class="text-gray-700 mb-3">
+    Los <code>Set</code> ofrecen operaciones útiles como unión, intersección y diferencia.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>void main() {
+  Set&lt;String&gt; a = {'manzana', 'plátano', 'naranja'};
+  Set&lt;String&gt; b = {'plátano', 'kiwi', 'naranja'};
+
+  print('Unión: \${a.union(b)}');            
+  // {manzana, plátano, naranja, kiwi}
+
+  print('Intersección: \${a.intersection(b)}'); 
+  // {plátano, naranja}
+
+  print('Diferencia (a - b): \${a.difference(b)}'); 
+  // {manzana}
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Verificación de elementos</h3>
+  <p class="text-gray-700 mb-3">
+    Usa <code>.contains()</code> para comprobar si un elemento existe en el conjunto.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>Set&lt;int&gt; numeros = {10, 20, 30};
+if (numeros.contains(20)) {
+  print("20 está en el conjunto");
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Iteración sobre un <code>Set</code></h3>
+  <p class="text-gray-700 mb-3">
+    Aunque el orden no está garantizado, puedes recorrer los elementos con un bucle <code>for-in</code>.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>Set&lt;String&gt; colores = {'rojo', 'verde', 'azul'};
+for (String color in colores) {
+  print("Color: \$color");
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Notas importantes</h3>
+  <ul class="list-disc pl-5 text-gray-700 space-y-2">
+    <li>
+      Los <code>Set</code> son ideales cuando necesitas almacenar elementos únicos y no te importa el orden.
+    </li>
+    <li>
+      Si intentas crear un <code>Set</code> vacío con <code>{}</code>, Dart lo interpretará como un <code>Map</code>.
+      Usa <code>&lt;Tipo&gt;{}</code> o <code>Set&lt;Tipo&gt;()</code> para evitar ambigüedades:
+      <code class="bg-gray-100 px-1 rounded">Set&lt;int&gt; vacio = &lt;int&gt;{};</code>.
+    </li>
+    <li>
+      Los elementos de un <code>Set</code> deben ser comparables (implementar <code>==</code> y <code>hashCode</code> correctamente).
+    </li>
+    <li>
+      A diferencia de las <code>List</code>, no puedes acceder a un elemento por índice en un <code>Set</code>.
+    </li>
+  </ul>
+</section>
+
+   <!-- Section 9 -->
+<section id="map" class="mb-12 bg-white p-6 rounded-lg shadow">
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">8. Map (diccionarios)</h2>
+
+  <p class="text-gray-700 mb-4">
+    Un <code class="bg-gray-100 px-1 rounded">Map</code> en Dart almacena pares de <strong>clave-valor</strong>.
+    Cada clave debe ser única, y se puede acceder al valor asociado mediante dicha clave.
+    Los <code>Map</code> son ideales para representar datos estructurados como configuraciones, catálogos o registros.
+  </p>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Creación y acceso básico</h3>
+  <p class="text-gray-700 mb-3">
+    Puedes crear un <code>Map</code> con llaves <code>{}</code> o con el constructor <code>Map()</code>.
+    El acceso a un valor se hace con el operador <code>[]</code>, que devuelve <code>null</code> si la clave no existe.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>void main() {
   Map&lt;String, String&gt; capitales = {
     "España": "Madrid",
     "Francia": "París",
     "Italia": "Roma"
   };
-  print(capitales["España"]);
+  print(capitales["España"]); // "Madrid"
+  
+  // Añadir o actualizar
   capitales["Portugal"] = "Lisboa";
+  
+  // Recorrer el mapa
   capitales.forEach((pais, capital) {
-    print("$pais → $capital");
+    print("\$pais → \$capital");
   });
 }</pre>
-      </div>
-    </section>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Métodos comunes</h3>
+  <p class="text-gray-700 mb-3">
+    Los <code>Map</code> ofrecen múltiples métodos para manipular y consultar sus datos.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>Map&lt;String, int&gt; edades = {"Ana": 25, "Luis": 30};
+
+// Verificar si existe una clave
+if (edades.containsKey("Ana")) {
+  print("Ana tiene \${edades["Ana"]} años");
+}
+
+// Verificar si existe un valor
+if (edades.containsValue(30)) {
+  print("Alguien tiene 30 años");
+}
+
+// Obtener todas las claves o valores
+print("Claves: \${edades.keys}");     // (Ana, Luis)
+print("Valores: \${edades.values}");   // (25, 30)
+
+// Eliminar un par
+edades.remove("Luis");
+print(edades); // {Ana: 25}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Valores por defecto con <code>putIfAbsent</code></h3>
+  <p class="text-gray-700 mb-3">
+    Evita <code>null</code> al acceder a claves inexistentes usando métodos como <code>putIfAbsent</code> o el operador de nulabilidad.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>Map&lt;String, int&gt; puntuaciones = {"jugador1": 100};
+
+// Si no existe, asigna un valor por defecto
+int score = puntuaciones.putIfAbsent("jugador2", () => 0);
+print(score); // 0
+print(puntuaciones); // {jugador1: 100, jugador2: 0}
+
+// O simplemente con operador ??
+int score2 = puntuaciones["jugador3"] ?? 0;
+print(score2); // 0 (sin modificar el mapa)</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Mapas anidados</h3>
+  <p class="text-gray-700 mb-3">
+    Es común usar <code>Map</code> dentro de otros <code>Map</code> para representar estructuras complejas.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>Map&lt;String, Map&lt;String, dynamic&gt;&gt; usuarios = {
+  "user1": {
+    "nombre": "Carlos",
+    "edad": 28,
+    "activo": true
+  },
+  "user2": {
+    "nombre": "Lucía",
+    "edad": 32,
+    "activo": false
+  }
+};
+
+print(usuarios["user1"]?["nombre"]); // "Carlos"</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Notas importantes</h3>
+  <ul class="list-disc pl-5 text-gray-700 space-y-2">
+    <li>
+      Las claves en un <code>Map</code> deben ser objetos inmutables o que no cambien su <code>hashCode</code> (como <code>String</code>, <code>int</code>, etc.).
+    </li>
+    <li>
+      Al igual que con los <code>Set</code>, usar <code>{}</code> sin tipo puede interpretarse como <code>Map</code> o <code>Set</code>.
+      Para evitar ambigüedad, especifica el tipo: <code>Map&lt;String, int&gt; datos = {};</code>.
+    </li>
+    <li>
+      El operador <code>[]</code> devuelve <code>null</code> si la clave no existe (en modo nul-safety, el tipo será <code>V?</code>).
+    </li>
+    <li>
+      Puedes usar <code>entries</code> para iterar sobre pares clave-valor como objetos <code>MapEntry</code>.
+    </li>
+  </ul>
+</section>
 
  
 
-    <!-- Section 12 -->
-    <section id="nulabilidad" class="mb-12 bg-white p-6 rounded-lg shadow">
-      <h2 class="text-2xl font-bold text-indigo-600 mb-4">12. Nulabilidad (Null Safety)</h2>
-      <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
-        <pre>void main() {
-  // Variable nullable
+   <!-- Section 12 -->
+<section id="nulabilidad" class="mb-12 bg-white p-6 rounded-lg shadow">
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">9. Nulabilidad (Null Safety)</h2>
+
+  <p class="text-gray-700 mb-4">
+    Dart incluye <strong>Null Safety</strong> desde la versión 2.12, un sistema que evita errores en tiempo de ejecución
+    al garantizar que no se acceda a valores <code>null</code> de forma accidental.
+    Cada variable debe declararse explícitamente como nulable o no nulable.
+  </p>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Tipos no nulables vs. tipos nulables</h3>
+  <p class="text-gray-700 mb-3">
+    Por defecto, los tipos en Dart <strong>no permiten</strong> <code>null</code>. Para permitirlo, añade <code>?</code> al tipo.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>// No nulable → debe inicializarse
+String nombre = "Ana";
+
+// Nulable → puede ser null
+String? apellido;
+
+// ❌ Error de compilación:
+// String ciudad; // No inicializada y no nulable → ¡no compila!
+String? ciudad; // ✅ Válido</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Operadores para trabajar con nulabilidad</h3>
+  <p class="text-gray-700 mb-3">
+    Dart proporciona operadores seguros para manejar valores que podrían ser <code>null</code>.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>void main() {
   String? nombre;
-  // Usando el operador null-coalescing (??)
-  print(nombre ?? "Desconocido");
-  // Asignación condicional
+
+  // Operador ?? → valor por defecto si es null
+  print(nombre ?? "Desconocido"); // "Desconocido"
+
+  // Asignar valor
   nombre = "Laura";
-  print(nombre?.toUpperCase());
+
+  // Operador ?. → invocación segura
+  print(nombre?.toUpperCase()); // "LAURA"
+
+  // Operador ! → afirmación de no nulidad (¡cuidado!)
+  print(nombre!.length); // 5 (solo si estás seguro de que no es null)
 }</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Inicialización tardía con <code>late</code></h3>
+  <p class="text-gray-700 mb-3">
+    Si sabes que una variable no nulable se inicializará antes de usarse (pero no en la declaración),
+    puedes usar la palabra clave <code>late</code>.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>late String configuracion;
+
+void cargarConfiguracion() {
+  configuracion = "modo-oscuro";
+}
+
+void main() {
+  cargarConfiguracion();
+  print(configuracion); // ✅ Válido gracias a "late"
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Manejo seguro en funciones y parámetros</h3>
+  <p class="text-gray-700 mb-3">
+    Los parámetros de funciones también pueden ser nulables, y debes manejarlos adecuadamente.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>void saludar(String? nombre) {
+  if (nombre != null) {
+    print("Hola, \$nombre");
+  } else {
+    print("Hola, invitado");
+  }
+  // O de forma más concisa:
+  print("Bienvenido, \${nombre ?? "invitado"}");
+}</pre>
+  </div>
+
+  <div class="bg-yellow-50 p-3 rounded text-sm mt-6">
+    <strong>🔑 Notas clave:</strong>
+    <ul class="list-disc pl-5 mt-1 space-y-1">
+      <li><code>String</code> → nunca puede ser <code>null</code>.</li>
+      <li><code>String?</code> → puede contener una cadena o <code>null</code>.</li>
+      <li><code>??</code> → devuelve el valor de la izquierda si no es <code>null</code>; si lo es, devuelve el de la derecha.</li>
+      <li><code>?.</code> → invoca un método o accede a una propiedad solo si el objeto no es <code>null</code>.</li>
+      <li><code>!</code> → fuerza el acceso asumiendo que no es <code>null</code> (usa con precaución).</li>
+      <li><code>late</code> → para variables no nulables que se inicializan después de la declaración.</li>
+    </ul>
+  </div>
+ <p class="text-gray-700 mt-4 text-sm italic">
+    Null Safety no solo previene errores, sino que mejora la legibilidad y mantenibilidad del código al hacer explícitas las intenciones del desarrollador.
+  </p>
+</section>
+  <!-- Section 13 -->
+<section id="clases-poo" class="mb-12 bg-white p-6 rounded-lg shadow">
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">10. Clases y Programación Orientada a Objetos (POO)</h2>
+
+  <p class="text-gray-700 mb-4">
+    Dart es un lenguaje orientado a objetos. Todo valor es un objeto, incluyendo números, funciones y <code>null</code>.
+    Las clases definen la estructura y comportamiento de los objetos mediante propiedades (atributos) y métodos.
+  </p>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Definición básica de una clase</h3>
+  <p class="text-gray-700 mb-3">
+    Una clase se define con la palabra clave <code>class</code>. Incluye campos (propiedades) y métodos (comportamientos).
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>class Persona {
+  String nombre;
+  int edad;
+
+  // Constructor
+  Persona(this.nombre, this.edad);
+
+  // Método
+  void saludar() {
+    print("Hola, soy \$nombre y tengo \$edad años.");
+  }
+}
+
+void main() {
+  var persona = Persona("Carlos", 30);
+  persona.saludar(); // Hola, soy Carlos y tengo 30 años.
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Constructores y propiedades</h3>
+  <p class="text-gray-700 mb-3">
+    Dart permite una sintaxis concisa para asignar parámetros del constructor a propiedades usando <code>this.</code>.
+    También puedes usar constructores con parámetros nombrados.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>class Coche {
+  String marca;
+  String? color; // opcional
+
+  // Constructor con parámetros nombrados
+  Coche({required this.marca, this.color});
+
+  String get info => "Coche: \$marca \${color ?? 'sin color'}";
+}
+
+void main() {
+  var coche1 = Coche(marca: "Toyota");
+  var coche2 = Coche(marca: "Ford", color: "Rojo");
+  print(coche1.info); // Coche: Toyota sin color
+  print(coche2.info); // Coche: Ford Rojo
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Herencia</h3>
+  <p class="text-gray-700 mb-3">
+    Una clase puede heredar de otra usando <code>extends</code>. Dart no admite herencia múltiple,
+    pero sí mixins (ver más abajo).
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>class Animal {
+  String nombre;
+  Animal(this.nombre);
+
+  void hacerSonido() {
+    print("\$nombre hace un sonido.");
+  }
+}
+
+class Perro extends Animal {
+  Perro(String nombre) : super(nombre);
+
+  @override
+  void hacerSonido() {
+    print("\$nombre dice: ¡Guau!");
+  }
+}
+
+void main() {
+  var perro = Perro("Firulais");
+  perro.hacerSonido(); // Firulais dice: ¡Guau!
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Métodos getter y setter</h3>
+  <p class="text-gray-700 mb-3">
+    Puedes definir propiedades calculadas o controlar el acceso con <code>get</code> y <code>set</code>.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>class Rectangulo {
+  double ancho, alto;
+  Rectangulo(this.ancho, this.alto);
+
+  // Getter calculado
+  double get area => ancho * alto;
+
+  // Setter personalizado
+  set escalar(double factor) {
+    ancho *= factor;
+    alto *= factor;
+  }
+}
+
+void main() {
+  var r = Rectangulo(4, 5);
+  print(r.area); // 20
+  r.escalar = 2;
+  print(r.area); // 80
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Mixins: reutilización de código sin herencia</h3>
+  <p class="text-gray-700 mb-3">
+    Los <code>mixin</code> permiten inyectar funcionalidad en múltiples clases, incluso si no están relacionadas.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>mixin Volador {
+  void volar() {
+    print("¡Estoy volando!");
+  }
+}
+
+class Pajaro extends Animal with Volador {
+  Pajaro(String nombre) : super(nombre);
+}
+
+void main() {
+  var ave = Pajaro("Águila");
+  ave.hacerSonido(); // Águila hace un sonido.
+  ave.volar();       // ¡Estoy volando!
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Notas importantes</h3>
+  <ul class="list-disc pl-5 text-gray-700 space-y-2">
+    <li>
+      Todas las clases en Dart heredan implícitamente de <code>Object</code>.
+    </li>
+    <li>
+      Usa <code>@override</code> para indicar que estás sobrescribiendo un método (mejora la legibilidad y evita errores).
+    </li>
+    <li>
+      Los constructores no se heredan, pero puedes llamar al constructor de la clase padre con <code>super()</code>.
+    </li>
+    <li>
+      Dart no tiene modificadores de acceso como <code>public</code> o <code>private</code>; todo es público.
+      Para simular privacidad, usa el guion bajo: <code>_propiedad</code> (solo visible dentro de la biblioteca).
+    </li>
+  </ul>
+</section>
+<!-- Section 14 -->
+<section id="ejercicios" class="mb-12 bg-white p-6 rounded-lg shadow">
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">11. Ejercicios Prácticos</h2>
+
+  <p class="text-gray-700 mb-6">
+    A continuación, dos ejercicios que aplican los conceptos vistos: estructuras de control, funciones, colecciones, nulabilidad y programación orientada a objetos.
+  </p>
+
+  <!-- Ejercicio 1: Sin clases -->
+  <div class="border-l-4 border-blue-500 pl-4 mb-8">
+    <h3 class="text-xl font-semibold text-gray-800 mb-2">Ejercicio 1: Estadísticas de calificaciones</h3>
+    <p class="text-gray-700 mb-3">
+      Escribe una función que reciba una lista de calificaciones (enteros entre 0 y 100) y devuelva un mapa con:
+      <code>"promedio"</code>, <code>"aprobados"</code> (≥60) y <code>"maxima"</code>.
+      Si la lista está vacía, devuelve valores por defecto seguros.
+    </p>
+    <h3 class="text-xl font-semibold text-gray-800 mb-2">Solución:</h3>
+    <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>Map&lt;String, dynamic&gt; analizarCalificaciones(List&lt;int&gt; calificaciones) {
+  if (calificaciones.isEmpty) {
+    return {"promedio": 0, "aprobados": 0, "maxima": null};
+  }
+
+  int aprobados = calificaciones.where((n) => n >= 60).length;
+  double promedio = calificaciones.reduce((a, b) => a + b) / calificaciones.length;
+  int maxima = calificaciones.reduce((a, b) => a > b ? a : b);
+
+  return {
+    "promedio": promedio,
+    "aprobados": aprobados,
+    "maxima": maxima
+  };
+}
+
+void main() {
+  List&lt;int&gt; notas = [85, 72, 58, 90, 45];
+  var resultado = analizarCalificaciones(notas);
+  print(resultado);
+  // {promedio: 70.0, aprobados: 3, maxima: 90}
+}</pre>
+    </div>
+
+    <p class="text-sm text-gray-600 mt-2">
+      <strong>Conceptos aplicados:</strong> listas, funciones, operadores de colección (<code>where</code>, <code>reduce</code>), nulabilidad, mapas.
+    </p>
+   
+
+  <p class="text-gray-700 mb-4">
+    Esta línea define una función en Dart. Vamos a desglosar cada parte para entender su significado y propósito.
+  </p>
+
+  <div class="space-y-5">
+    <div>
+      <p class="text-gray-700 mt-2">
+        La función <code>analizarCalificaciones</code> indica que devuelve un <strong>mapa</strong> (diccionario) donde:
+      </p>
+      <ul class="list-disc pl-5 text-gray-700 mt-2 space-y-1">
+        <li>Las <strong>claves</strong> son siempre de tipo <code>String</code> (ej. <code>"promedio"</code>, <code>"aprobados"</code>).</li>
+        <li>Los <strong>valores</strong> pueden ser de <strong>cualquier tipo</strong> (<code>int</code>, <code>double</code>, <code>null</code>, etc.), gracias a la palabra clave <code>dynamic</code>.</li>
+      </ul>
+      <p class="text-gray-700 mt-2">
+        Se usa <code>dynamic</code> aquí porque el mapa mezcla tipos distintos:
+        <code>promedio</code> es un <code>double</code>, <code>aprobados</code> es un <code>int</code>,
+        y <code>maxima</code> puede ser <code>int</code> o <code>null</code>.
+      </p>
+    </div>
+
+    <div>
+      <p class="text-gray-700 mt-2">
+        Es el identificador que se usa para llamar a la función en el código:
+      </p>
+      <div class="bg-gray-800 text-green-400 p-3 rounded mt-2 font-mono text-sm overflow-x-auto">
+        <pre>var resultado = analizarCalificaciones([80, 90, 70]);</pre>
       </div>
-      <div class="bg-yellow-50 p-3 rounded text-sm mt-3">
-        <strong>🔑 Notas:</strong>
-        <ul class="list-disc pl-5 mt-1">
-          <li><code>String?</code> → puede ser <code>null</code>.</li>
-          <li><code>??</code> → valor por defecto si es <code>null</code>.</li>
-          <li><code>?.</code> → evita error si la variable es <code>null</code>.</li>
-        </ul>
-      </div>
-    </section>
+    </div>
+  </div>
+
+  <div class="bg-blue-50 p-3 rounded mt-6">
+    <p class="text-blue-800 text-sm">
+      <strong>💡 En resumen:</strong>  
+      <em>“Esta función toma una lista de calificaciones (enteros) y devuelve un mapa con estadísticas cuyos valores pueden ser de distintos tipos.”</em>
+    </p>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Alternativa más segura (opcional)</h3>
+  <p class="text-gray-700 mb-2">
+    En lugar de usar <code>Map&lt;String, dynamic&gt;</code>, puedes crear una clase para mejorar la seguridad de tipos:
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>class ReporteCalificaciones {
+  final double promedio;
+  final int aprobados;
+  final int? maxima;
+  ReporteCalificaciones(this.promedio, this.aprobados, this.maxima);
+}</pre>
+  </div>
+  <p class="text-gray-700 text-sm italic">
+    Esto evita el uso de <code>dynamic</code> y permite al compilador detectar errores antes de ejecutar el programa.
+  </p>
+  </div>
+
+  <!-- Ejercicio 2: Con clases -->
+  <div class="border-l-4 border-purple-500 pl-4">
+    <h3 class="text-xl font-semibold text-gray-800 mb-2">Ejercicio 2: Gestión de una biblioteca</h3>
+    <p class="text-gray-700 mb-3">
+      Crea las clases <code>Libro</code> y <code>Biblioteca</code>. La biblioteca debe permitir:
+      añadir libros, buscar por título (ignorando mayúsculas), y obtener una lista de libros disponibles.
+      Usa encapsulamiento y métodos seguros.
+    </p>
+ <h3 class="text-xl font-semibold text-gray-800 mb-2">Solución:</h3>
+    <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>class Libro {
+  final String titulo;
+  final String autor;
+  bool _disponible = true;
+
+  Libro(this.titulo, this.autor);
+
+  bool get disponible => _disponible;
+  void prestar() => _disponible = false;
+  void devolver() => _disponible = true;
+
+  @override
+  String toString() => "Libro: \$titulo por \$autor";
+}
+
+class Biblioteca {
+  final List&lt;Libro&gt; _libros = [];
+
+  void agregarLibro(Libro libro) {
+    _libros.add(libro);
+  }
+
+  Libro? buscarPorTitulo(String titulo) {
+    return _libros.firstWhere(
+      (libro) => libro.titulo.toLowerCase() == titulo.toLowerCase(),
+      orElse: () => null,
+    );
+  }
+
+  List&lt;Libro&gt; get disponibles => _libros.where((l) => l.disponible).toList();
+}
+
+void main() {
+  var biblio = Biblioteca();
+  biblio.agregarLibro(Libro("Cien años de soledad", "García Márquez"));
+  biblio.agregarLibro(Libro("1984", "Orwell"));
+
+  var libro = biblio.buscarPorTitulo("1984");
+  if (libro != null) libro.prestar();
+
+  print("Disponibles: \${biblio.disponibles.length}");
+  // Disponibles: 1
+}</pre>
+    </div>
+
+    <p class="text-sm text-gray-600 mt-2">
+      <strong>Conceptos aplicados:</strong> clases, encapsulamiento (propiedad privada con <code>_</code>), getters, métodos, colecciones, nulabilidad, <code>firstWhere</code> con <code>orElse</code>.
+    </p>
+  </div>
+</section>
+
+ 
 
     <!-- Footer -->
     <footer class="text-center text-gray-500 text-sm mt-12">
