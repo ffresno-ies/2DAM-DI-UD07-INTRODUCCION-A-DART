@@ -850,7 +850,9 @@ body { margin-left:240px !important; }
 #sidebar a { text-decoration:none; }
 </style>
 </head>
-<body class="pretty-comment-panel pretty-comment-panel-collapsed" data-view-theme="light" style="--hmd-comment-panel-width: 348px;" theme="light"><nav id="sidebar"><h2>Ejercicios</h2><ul><li><a href="#Exercise-1">Ejercicio 1</a></li><li><a href="#Exercise-2">Ejercicio-2</a></li><li><a href="#Exercise-3">Ejercicio 3</a></li><li><a href="#Exercise-4">Ejercicio 4</a></li><li><a href="#Exercise-5">Ejercicio 5</a></li><li><a href="#Exercise-6">Ejercicio 6</a></li><li><a href="#Exercise-7">Ejercicio 7</a></li><li><a href="#Exercise-8">Ejercicio 8</a></li><li><a href="#Exercise-9">Ejercicio 9</a></li><li><a href="#Exercise-10">Ejercicio 10</a></li><li><a href="#Exercise-11">Ejercicio 11</a></li><li><a href="#Exercise-12">Ejercicio 12</a></li><li><a href="#Exercise-13">Ejercicio 13</a></li><li><a href="#Exercise-14">Ejercicio 14</a></li><li><a href="#Exercise-15">Ejercicio 15</a></li><li><a href="#Exercise-16">Ejercicio-16</a></li><li><a href="#Exercise-17">Ejercicio 17</a></li><li><a href="#Exercise-18">Ejercicio 18</a></li><li><a href="#Exercise-19">Ejercicio 19</a></li><li><a href="#Exercise-20">Ejercicio 20</a></li><li><a href="#Exercise-21">Ejercicio 21</a></li><li><a href="#Exercise-22">Ejercicio 22</a></li><li><a href="#Exercise-23">Ejercicio 23</a></li><li><a href="#Exercise-24">Ejercicio 24</a></li><li><a href="#Exercise-25">Ejercicio 25</a></li><li><a href="#Exercise-26">Ejercicio 26</a></li><li><a href="#Exercise-27">Ejercicio 27</a></li><li><a href="#Exercise-28">Ejercicio 28</a></li></ul></nav><span data-radix-focus-guard="" style="outline: none; opacity: 0; position: fixed; pointer-events: none;" tabindex="0"></span>
+<body class="pretty-comment-panel pretty-comment-panel-collapsed" data-view-theme="light" style="--hmd-comment-panel-width: 348px;" theme="light">
+   <div id="menu"></div>
+  <nav id="sidebar"><h2>Ejercicios</h2><ul><li><a href="#Exercise-1">Ejercicio 1</a></li><li><a href="#Exercise-2">Ejercicio-2</a></li><li><a href="#Exercise-3">Ejercicio 3</a></li><li><a href="#Exercise-4">Ejercicio 4</a></li><li><a href="#Exercise-5">Ejercicio 5</a></li><li><a href="#Exercise-6">Ejercicio 6</a></li><li><a href="#Exercise-7">Ejercicio 7</a></li><li><a href="#Exercise-8">Ejercicio 8</a></li><li><a href="#Exercise-9">Ejercicio 9</a></li><li><a href="#Exercise-10">Ejercicio 10</a></li><li><a href="#Exercise-11">Ejercicio 11</a></li><li><a href="#Exercise-12">Ejercicio 12</a></li><li><a href="#Exercise-13">Ejercicio 13</a></li><li><a href="#Exercise-14">Ejercicio 14</a></li><li><a href="#Exercise-15">Ejercicio 15</a></li><li><a href="#Exercise-16">Ejercicio-16</a></li><li><a href="#Exercise-17">Ejercicio 17</a></li><li><a href="#Exercise-18">Ejercicio 18</a></li><li><a href="#Exercise-19">Ejercicio 19</a></li><li><a href="#Exercise-20">Ejercicio 20</a></li><li><a href="#Exercise-21">Ejercicio 21</a></li><li><a href="#Exercise-22">Ejercicio 22</a></li><li><a href="#Exercise-23">Ejercicio 23</a></li><li><a href="#Exercise-24">Ejercicio 24</a></li><li><a href="#Exercise-25">Ejercicio 25</a></li><li><a href="#Exercise-26">Ejercicio 26</a></li><li><a href="#Exercise-27">Ejercicio 27</a></li><li><a href="#Exercise-28">Ejercicio 28</a></li></ul></nav><span data-radix-focus-guard="" style="outline: none; opacity: 0; position: fixed; pointer-events: none;" tabindex="0"></span>
 <div class="toasts-container z-[2000]" id="toasts-container">
 <div>
 <div class="pointer-events-auto ml-auto mr-auto flex w-fit flex-col justify-end"></div>
@@ -3614,7 +3616,13 @@ bool <span class="token function">rowCheck</span><span class="token punctuation"
 </div>
 <span data-radix-focus-guard="" style="outline: none; opacity: 0; position: fixed; pointer-events: none;" tabindex="0"></span>
 <div id="assistant"></div>
+
+<script>
+  fetch("menu.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("menu").innerHTML = data;
+    });
+</script>
 </body>
-<div></div>
-<div></div>
 </html>
