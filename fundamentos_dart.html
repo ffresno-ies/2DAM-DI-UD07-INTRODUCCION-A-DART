@@ -20,19 +20,27 @@
     <!-- Table of Contents -->
     <nav class="bg-white p-5 rounded-lg shadow mb-10">
       <h2 class="text-xl font-semibold text-gray-800 mb-3">Tabla de contenido</h2>
-      <ul class="list-disc pl-5 space-y-1 text-gray-700">
-        <li><a href="#intro" class="hover:text-indigo-600 transition">1. Introducción a Dart</a></li>
-        <li><a href="#variables" class="hover:text-indigo-600 transition">2. Variables</a></li>
-        <li><a href="#entrada" class="hover:text-indigo-600 transition">3. Entrada de Datos (desde consola)</a></li>
-        <li><a href="#condicionales" class="hover:text-indigo-600 transition">4. Estructuras Condicionales</a></li>
-        <li><a href="#bucles-control" class="hover:text-indigo-600 transition">5. Bucles y estructuras de control</a></li>
-        <li><a href="#funciones" class="hover:text-indigo-600 transition">6. Funciones</a></li>
-        <li><a href="#sets" class="hover:text-indigo-600 transition">7. Sets (conjuntos)</a></li>
-        <li><a href="#map" class="hover:text-indigo-600 transition">8. Map (diccionarios)</a></li>
-        <li><a href="#nulabilidad" class="hover:text-indigo-600 transition">9. Nulabilidad</a></li>
-        <li><a href="#clases-poo" class="hover:text-indigo-600 transition">10. Clases y POO</a></li>
-        <li><a href="#ejercicios" class="hover:text-indigo-600 transition">11. Ejercicios de prueba</a></li>
-      </ul>
+     <ul class="list-disc pl-5 space-y-1 text-gray-700">
+  <li><a href="#intro" class="hover:text-indigo-600 transition">1. Introducción a Dart</a></li>
+  <li><a href="#variables" class="hover:text-indigo-600 transition">2. Variables y Tipos de Datos</a></li>
+  <li><a href="#entrada" class="hover:text-indigo-600 transition">3. Entrada de Datos (desde consola)</a></li>
+  <li><a href="#condicionales" class="hover:text-indigo-600 transition">4. Estructuras Condicionales</a></li>
+  <li><a href="#bucles-control" class="hover:text-indigo-600 transition">5. Bucles y Estructuras de Control</a></li>
+  <li><a href="#funciones" class="hover:text-indigo-600 transition">6. Funciones</a></li>
+  
+  <!-- Sección agrupada: Colecciones -->
+  <li><a href="#colecciones" class="hover:text-indigo-600 transition font-medium">7. Colecciones</a>
+    <ul class="list-none mt-1 space-y-1 text-gray-600">
+      <li>→ <a href="#list" class="hover:text-indigo-600 transition">List (Listas)</a></li>
+      <li>→ <a href="#sets" class="hover:text-indigo-600 transition">Set (Conjuntos)</a></li>
+      <li>→ <a href="#map" class="hover:text-indigo-600 transition">Map (Diccionarios)</a></li>
+    </ul>
+  </li>
+
+  <li><a href="#nulabilidad" class="hover:text-indigo-600 transition">8. Nulabilidad</a></li>
+  <li><a href="#clases-poo" class="hover:text-indigo-600 transition">9. Clases y Programación Orientada a Objetos (POO)</a></li>
+  <li><a href="#ejercicios" class="hover:text-indigo-600 transition">10. Ejercicios de Práctica</a></li>
+</ul>
     </nav>
 
     <!-- Section 1 -->
@@ -54,7 +62,11 @@
         <li>Tipado estático pero flexible (inferencia de tipos).</li>
         <li>Soporte para nulabilidad segura (null safety).</li>
       </ul>
-      <p class="mb-3"><strong>Probar y practicar con los ejemplos</strong></p>
+      <div class="bg-green-50 p-4 rounded-lg mt-4">
+        <h4 class="font-semibold text-green-800 mb-2">DOCUMENTACIÓN DE DART - Web Oficial.</h4>
+        <p class="text-green-800 text-sm"><a href="https://dart.dev/language" target="_blank" class="text-green-800 hover:underline">Ir a la documentación</a></p>
+      </div>
+      <h2 class="text-2xl font-bold text-indigo-600 mb-4">Probar y practicar con los ejemplos</h2>
       <p class="mb-3">Puedes usar <strong>Dartpad</strong> pero se quedará corto cuando deseemos importar paquetes, así que te propongo 2 soluciones:</p>
       <div class="bg-blue-50 p-4 rounded-lg">
         <h4 class="font-semibold text-blue-800 mb-2">OPCIÓN 1. Replit</h4>
@@ -286,7 +298,7 @@ if (calificacion >= 90) {
 } else if (calificacion >= 50) {
   print("Aprobado con dificultad");
 } else {
-  print("Reprobado");
+  print("Suspenso");
 }</pre>
   </div>
 
@@ -386,22 +398,27 @@ do {
     (como literales o valores <code>const</code>).
   </p>
   <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
-<pre>String dia = "lunes";
+<pre>
+  //Para el test1
+  String dia = "lunes";
+  //Parea el test2
+  String dia = "sábado";
 
-switch (dia) {
-  case "lunes":
-    print("Inicio de la semana");
-    break;
-  case "viernes":
-    print("Fin de la semana laboral");
-    break;
-  case "sábado":
-  case "domingo":
-    print("Fin de semana");
-    break;
-  default:
-    print("Día entre semana");
-}</pre>
+  switch (dia) {
+    case "lunes":
+      print("Inicio de la semana");
+      break;
+    case "viernes":
+      print("Fin de la semana laboral");
+      break;
+    // Usar '|' para multiples valores
+    case "sábado" | "domingo": 
+      print("Fin de semana");
+      break;
+    default:
+      print("Día entre semana");
+  }
+</pre>
   </div>
 
   <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Notas importantes</h3>
@@ -441,7 +458,9 @@ switch (dia) {
 <pre>// Función con parámetros y retorno
 int sumar(int a, int b) {
   return a + b;
-}</pre>
+}
+
+print(sumar(7,3));</pre>
   </div>
 
   <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Funciones flecha (<i>arrow functions</i>)</h3>
@@ -450,7 +469,8 @@ int sumar(int a, int b) {
   </p>
   <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
 <pre>// Función flecha (equivalente a la anterior)
-int multiplicar(int a, int b) => a * b;</pre>
+  int multiplicar(int a, int b) => a * b;
+  print(multiplicar(7,3));</pre>
   </div>
 
   <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Parámetros opcionales</h3>
@@ -460,14 +480,14 @@ int multiplicar(int a, int b) => a * b;</pre>
 
   <h4 class="text-md font-medium text-gray-700 mt-3">Parámetros nombrados (entre llaves <code>{}</code>)</h4>
   <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
-<pre>void saludar({String nombre = "Invitado", int edad = 0}) {
-  print("Hola \$nombre, tienes \$edad años.");
-}
+<pre>  void saludar({String nombre = "Invitado", int edad = 0}) {
+    print("Hola $nombre, tienes $edad años.");
+  }
 
-// Uso
-saludar(nombre: "Ana", edad: 25);
-saludar(nombre: "Luis"); // edad usará valor por defecto
-saludar(); // usa ambos valores por defecto</pre>
+  // Uso
+  saludar(nombre: "Ana", edad: 25);
+  saludar(nombre: "Luis"); // edad usará valor por defecto
+  saludar(); // usa ambos valores por defecto</pre>
   </div>
 
   <h4 class="text-md font-medium text-gray-700 mt-3">Parámetros posicionales opcionales (entre corchetes <code>[]</code>)</h4>
@@ -529,10 +549,133 @@ void main() {
     </li>
   </ul>
 </section>
+<h2 id="colecciones" class="text-2xl font-bold text-indigo-600 mb-4 mt-12">7. Colecciones</h2>
+<p class="text-gray-700 mb-6">Las colecciones en Dart te permiten agrupar y manipular múltiples valores de forma eficiente.</p>
+<section id="list" class="mb-12 bg-white p-6 rounded-lg shadow">
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">7.1 List (listas)</h2>
+
+  <p class="text-gray-700 mb-4">
+    Una <code class="bg-gray-100 px-1 rounded">List</code> en Dart es una colección ordenada de elementos, 
+    a los que se accede por su <strong>índice numérico</strong> (empezando en 0). 
+    Las listas pueden contener elementos de cualquier tipo, y su tamaño puede ser fijo o dinámico.
+  </p>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Creación y acceso básico</h3>
+  <p class="text-gray-700 mb-3">
+    Puedes crear una lista con corchetes <code>[]</code> o con el constructor <code>List.filled()</code>.
+    El acceso se hace con <code>[índice]</code>, y si el índice no existe, lanzará una excepción en tiempo de ejecución.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>void main() {
+  List&lt;String&gt; meses = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+  ];
+
+  // Acceso por índice
+  print(meses[0]);      // "Enero"
+  print(meses[11]);     // "Diciembre"
+
+  // Modificación
+  meses[0] = "ENE";
+  print(meses[0]);      // "ENE"
+
+  // Tamaño de la lista
+  print("Total de meses: \${meses.length}"); // 12
+}
+</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Listas dinámicas vs. fijas</h3>
+  <p class="text-gray-700 mb-3">
+    Por defecto, las listas en Dart son <strong>dinámicas</strong> (puedes añadir o eliminar elementos).
+    Si necesitas una lista de tamaño fijo, usa <code>List.filled()</code>.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>// Lista dinámica (tamaño variable)
+List&lt;int&gt; numeros = [1, 2, 3];
+numeros.add(4); // OK
+print(numeros); // [1, 2, 3, 4]
+
+// Lista fija (tamaño inmutable)
+List&lt;String&gt; colores = List.filled(3, "blanco");
+// colores.add("rojo"); // ❌ Error en tiempo de ejecución
+colores[0] = "rojo"; // ✅ Permitido (solo reemplazo)
+print(colores); // [rojo, blanco, blanco]</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Métodos comunes para manipular listas</h3>
+  <p class="text-gray-700 mb-3">
+    Dart ofrece muchos métodos útiles para trabajar con listas.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>List&lt;String&gt; meses = ["Enero", "Febrero", "Marzo"];
+
+// Añadir elementos
+meses.add("Abril");
+meses.addAll(["Mayo", "Junio"]);
+
+// Eliminar por valor o índice
+meses.remove("Febrero");         // elimina la primera coincidencia
+meses.removeAt(0);               // elimina "Enero"
+
+// Verificar contenido
+if (meses.contains("Marzo")) {
+  print("¡Marzo está en la lista!");
+}
+
+// Iterar
+for (String mes in meses) {
+  print(mes);
+}
+
+// También puedes usar forEach
+meses.forEach((mes) => print(mes));</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Listas y nulabilidad</h3>
+  <p class="text-gray-700 mb-3">
+    En Dart con nul-safety, el acceso a un índice inválido <strong>no devuelve <code>null</code></strong>,
+    sino que lanza una excepción. Siempre valida el rango antes de acceder.
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>List&lt;String&gt; meses = ["Enero", "Febrero"];
+
+// ❌ Peligroso: podría lanzar RangeError
+// print(meses[5]);
+
+// ✅ Seguro: verificar el rango
+if (5 < meses.length) {
+  print(meses[5]);
+} else {
+  print("Índice fuera de rango");
+}</pre>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Notas importantes</h3>
+  <ul class="list-disc pl-5 text-gray-700 space-y-2">
+    <li>
+      Todas las listas en Dart implementan la interfaz <code>List</code> y son indexadas desde <code>0</code>.
+    </li>
+    <li>
+      Las listas literales con <code>[]</code> son <strong>dinámicas</strong> por defecto.
+    </li>
+    <li>
+      Para crear una lista vacía con tipo explícito, escribe: <code>List&lt;String&gt; frutas = [];</code>  
+      (sin esto, Dart podría inferirla como <code>List&lt;Object&gt;</code> en contextos ambiguos).
+    </li>
+    <li>
+      Puedes usar <code>first</code>, <code>last</code>, <code>isEmpty</code>, <code>isNotEmpty</code>, etc., para operaciones comunes.
+    </li>
+    <li>
+      Los elementos de una lista pueden ser de tipos distintos si usas <code>List&lt;Object&gt;</code> o <code>List&lt;dynamic&gt;</code>, pero se recomienda tipar fuertemente.
+    </li>
+  </ul>
+</section>
 
     <!-- Section 8 -->
 <section id="sets" class="mb-12 bg-white p-6 rounded-lg shadow">
-  <h2 class="text-2xl font-bold text-indigo-600 mb-4">7. Sets (conjuntos)</h2>
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">7.2 Sets (conjuntos)</h2>
 
   <p class="text-gray-700 mb-4">
     Un <code class="bg-gray-100 px-1 rounded">Set</code> en Dart es una colección no ordenada de elementos <strong>únicos</strong>.
@@ -617,7 +760,7 @@ for (String color in colores) {
 
    <!-- Section 9 -->
 <section id="map" class="mb-12 bg-white p-6 rounded-lg shadow">
-  <h2 class="text-2xl font-bold text-indigo-600 mb-4">8. Map (diccionarios)</h2>
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">7.3 Map (diccionarios)</h2>
 
   <p class="text-gray-700 mb-4">
     Un <code class="bg-gray-100 px-1 rounded">Map</code> en Dart almacena pares de <strong>clave-valor</strong>.
@@ -632,21 +775,20 @@ for (String color in colores) {
   </p>
   <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
 <pre>void main() {
-  Map&lt;String, String&gt; capitales = {
-    "España": "Madrid",
-    "Francia": "París",
-    "Italia": "Roma"
-  };
-  print(capitales["España"]); // "Madrid"
-  
+  Map<int, String> diasSemana = {1: "lunes", 2: "Martes", 3: "Miércoles"};
+  //acceso a elementos
+  print(diasSemana[1]); // "lunes"
+
   // Añadir o actualizar
-  capitales["Portugal"] = "Lisboa";
-  
+  diasSemana[4] = "Jueves";
+  diasSemana[1] = "Lunes";
+
   // Recorrer el mapa
-  capitales.forEach((pais, capital) {
-    print("\$pais → \$capital");
+  diasSemana.forEach((num, dia) {
+    print("$num → $dia");
   });
-}</pre>
+}
+</pre>
   </div>
 
   <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Métodos comunes</h3>
@@ -988,28 +1130,47 @@ void main() {
   <h2 class="text-2xl font-bold text-indigo-600 mb-4">11. Ejercicios Prácticos</h2>
 
   <p class="text-gray-700 mb-6">
-    A continuación, dos ejercicios que aplican los conceptos vistos: estructuras de control, funciones, colecciones, nulabilidad y programación orientada a objetos.
+    A continuación, dos ejercicios que aplican los conceptos vistos: estructuras de control, funciones, colecciones, nulabilidad y programación orientada a objetos. Son ejemplos avanzados. 
   </p>
 
   <!-- Ejercicio 1: Sin clases -->
   <div class="border-l-4 border-blue-500 pl-4 mb-8">
     <h3 class="text-xl font-semibold text-gray-800 mb-2">Ejercicio 1: Estadísticas de calificaciones</h3>
     <p class="text-gray-700 mb-3">
-      Escribe una función que reciba una lista de calificaciones (enteros entre 0 y 100) y devuelva un mapa con:
-      <code>"promedio"</code>, <code>"aprobados"</code> (≥60) y <code>"maxima"</code>.
+      Escribe una función que reciba una lista de calificaciones (enteros entre 0 y 10) y devuelva un mapa con:
+      <code>"promedio"</code>, <code>"aprobados"</code> (≥5) y <code>"maxima"</code>.
       Si la lista está vacía, devuelve valores por defecto seguros.
     </p>
     <h3 class="text-xl font-semibold text-gray-800 mb-2">Solución:</h3>
     <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
-<pre>Map&lt;String, dynamic&gt; analizarCalificaciones(List&lt;int&gt; calificaciones) {
+<pre>// Función que analiza una lista de calificaciones numéricas (enteros)
+// y devuelve un mapa con estadísticas resumidas.
+Map<String, dynamic> analizarCalificaciones(List<int> calificaciones) {
+  // Caso especial: si la lista está vacía, devolvemos valores por defecto
   if (calificaciones.isEmpty) {
-    return {"promedio": 0, "aprobados": 0, "maxima": null};
+    return {
+      "promedio": 0,   // No hay promedio real, así que 0
+      "aprobados": 0,  // Ningún estudiante aprobado
+      "maxima": 0      // No hay calificación máxima
+    };
   }
 
-  int aprobados = calificaciones.where((n) => n >= 60).length;
+  // Contamos cuántas calificaciones son >= 5 (consideradas "aprobadas")
+  // - `where((n) => n >= 5)` filtra solo los elementos que cumplen la condición
+  // - `.length` cuenta cuántos elementos quedaron después del filtro
+  int aprobados = calificaciones.where((n) => n >= 5).length;
+
+  // Calculamos el promedio:
+  // - `reduce((a, b) => a + b)` suma todos los elementos de la lista
+  // - Luego dividimos entre el número total de calificaciones
   double promedio = calificaciones.reduce((a, b) => a + b) / calificaciones.length;
+
+  // Encontramos la calificación más alta:
+  // - `reduce` compara cada par de elementos y se queda con el mayor
+  // - `a > b ? a : b` es un operador ternario: si a > b, devuelve a; si no, b
   int maxima = calificaciones.reduce((a, b) => a > b ? a : b);
 
+  // Devolvemos un mapa con las tres estadísticas calculadas
   return {
     "promedio": promedio,
     "aprobados": aprobados,
@@ -1018,11 +1179,11 @@ void main() {
 }
 
 void main() {
-  List&lt;int&gt; notas = [85, 72, 58, 90, 45];
+  List<int> notas = [8, 7, 5, 9, 4];
   var resultado = analizarCalificaciones(notas);
   print(resultado);
-  // {promedio: 70.0, aprobados: 3, maxima: 90}
-}</pre>
+}
+</pre>
     </div>
 
     <p class="text-sm text-gray-600 mt-2">
@@ -1050,20 +1211,12 @@ void main() {
       </p>
     </div>
 
-    <div>
-      <p class="text-gray-700 mt-2">
-        Es el identificador que se usa para llamar a la función en el código:
-      </p>
-      <div class="bg-gray-800 text-green-400 p-3 rounded mt-2 font-mono text-sm overflow-x-auto">
-        <pre>var resultado = analizarCalificaciones([80, 90, 70]);</pre>
-      </div>
-    </div>
   </div>
 
   <div class="bg-blue-50 p-3 rounded mt-6">
     <p class="text-blue-800 text-sm">
-      <strong>💡 En resumen:</strong>  
-      <em>“Esta función toma una lista de calificaciones (enteros) y devuelve un mapa con estadísticas cuyos valores pueden ser de distintos tipos.”</em>
+      <strong>💡 NOTA::</strong>  
+      <em>Este código lo ha mejorado la IA después de mi codificación como humano donde he recorrido la lista para hacer los cálculos solicitados. <br>No te preocuopes si no hubieras sido capaz de hacerlo así. Yo tampoco. Conocer todas las funciones asociadas a los objetos de lenguaje es prácticamente imposible y más si estamos empezando. Lo importante es entender la lógica y el flujo del programa.</em>
     </p>
   </div>
 
