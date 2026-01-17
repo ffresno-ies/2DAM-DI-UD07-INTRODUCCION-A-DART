@@ -30,8 +30,7 @@
    
 
     <!-- Table of Contents -->
-    <nav class="bg-white p-5 rounded-lg shadow mb-10">
-      <h2 class="text-xl font-semibold text-gray-800 mb-3">Tabla de contenido</h2>
+<nav id="tabla-contenidos" class="bg-white p-5 rounded-lg shadow mb-10">      <h2 class="text-xl font-semibold text-gray-800 mb-3">Tabla de contenido</h2>
      <ul class="list-disc pl-5 space-y-1 text-gray-700">
   <li><a href="#intro" class="hover:text-indigo-600 transition">1. Introducción a Dart</a></li>
   <li><a href="#variables" class="hover:text-indigo-600 transition">2. Variables y Tipos de Datos</a></li>
@@ -51,13 +50,17 @@
 
   <li><a href="#nulabilidad" class="hover:text-indigo-600 transition">8. Nulabilidad</a></li>
   <li><a href="#clases-poo" class="hover:text-indigo-600 transition">9. Clases y Programación Orientada a Objetos (POO)</a></li>
-  <li><a href="#ejercicios" class="hover:text-indigo-600 transition">10. Ejercicios de Práctica</a></li>
+  <li><a href="#ejercicios" class="hover:text-indigo-600 transition">10. Ejercicios prácticos</a></li>
 </ul>
     </nav>
 
     <!-- Section 1 -->
     <section id="intro" class="mb-12 bg-white p-6 rounded-lg shadow">
-      <h2 class="text-2xl font-bold text-indigo-600 mb-4">1. Introducción a Dart</h2>
+      <h2 class="text-2xl font-bold text-indigo-600 mb-4">1. Introducción a Dart
+         <a href="#tabla-contenidos" class="ml-2 text-indigo-500 hover:text-indigo-700" title="Volver a la tabla de contenidos">
+      <i class="fas fa-arrow-up text-sm"></i>
+    </a>
+      </h2>
       <p class="mb-4">
         Dart es un lenguaje de programación moderno, desarrollado por Google, fuertemente tipado pero con soporte para inferencia de tipos. Se utiliza sobre todo en <strong>Flutter</strong> para desarrollo multiplataforma, aunque también sirve para backend y aplicaciones de consola.
       </p>
@@ -78,32 +81,29 @@
         <h4 class="font-semibold text-green-800 mb-2">DOCUMENTACIÓN DE DART - Web Oficial.</h4>
         <p class="text-green-800 text-sm"><a href="https://dart.dev/language" target="_blank" class="text-green-800 hover:underline">Ir a la documentación</a></p>
       </div>
-      <h2 class="text-2xl font-bold text-indigo-600 mb-4">Probar y practicar con los ejemplos</h2>
-      <p class="mb-3">Puedes usar <strong>Dartpad</strong> pero se quedará corto cuando deseemos importar paquetes, así que te propongo 2 soluciones:</p>
+      <BR>
+      <h2 class="text-2xl font-bold text-indigo-600 mb-4">Probar y practicar con los ejemplos <a href="#tabla-contenidos" class="ml-2 text-indigo-500 hover:text-indigo-700" title="Volver a la tabla de contenidos">
+      <i class="fas fa-arrow-up text-sm"></i>
+    </a></h2>
+      <p class="mb-3"></p>
       <div class="bg-blue-50 p-4 rounded-lg">
-        <h4 class="font-semibold text-blue-800 mb-2">OPCIÓN 1. Replit</h4>
+        <h3 class="font-semibold text-blue-800 mb-2">OPCIÓN 1. Usar DartPad.dev online. </h3>
         <ul class="list-disc pl-5 space-y-1 text-blue-800 text-sm">
-          <li>Replit ejecuta tu código en un entorno de servidor real (no en el navegador como DartPad).</li>
-          <li>Eso significa que sí soporta <code class="bg-blue-100 px-1 rounded">dart:io</code>, incluyendo: <code>stdin.readLineSync()</code> → para leer entrada del usuario.</li>
-          <li><code>File</code> → para leer/escribir archivos. <code>Process</code>, <code>HttpClient</code>, etc.</li>
-          <li>No necesitas instalar nada en tu computadora (todo está en la nube).</li>
-          <li>Es gratis para uso básico (con cuenta de Replit).</li>
+          <li>Puedes usar <strong><A HREF="https://dartpad.dev/?sample=hello-world&theme=dark">Dartpad  ↗</A></strong> para practicar sobre los fundamentos de Dart, pero se quedará corto cuando deseemos importar paquetes (ejercicios propuestos del 1 al 28).</li>
+          <li>No necesita instalaciones pero limitado en funcionalidad.</li>
         </ul>
-        <p class="mt-3"><strong>🔧 Cómo usar Dart en Replit</strong></p>
-        <ol class="list-decimal pl-5 space-y-1 text-sm">
-          <li>Ve a <a href="https://replit.com" target="_blank" class="text-blue-600 hover:underline">https://replit.com</a></li>
-          <li>Crea una cuenta (o inicia sesión).</li>
-          <li>Haz clic en <strong>+ Create Repl</strong> (o "New repl").</li>
-          <li>Busca "Dart" en el buscador de lenguajes.</li>
-          <li>Selecciona el template "Dart".</li>
-        </ol>
-      </div>
-      <div class="bg-green-50 p-4 rounded-lg mt-4">
-        <h4 class="font-semibold text-green-800 mb-2">OPCIÓN 2. Instalar Flutter en tu equipo (nos servirá más adelante)</h4>
-        <p class="text-green-800 text-sm">Ver vídeo</p>
+        <br>
+        <h3 class="font-semibold text-blue-800 mb-2">OPCIÓN 2. Instalar Flluter en tu equipo por lo que podrás usar Dart.</h3>
+        <ul class="list-disc pl-5 space-y-1 text-blue-800 text-sm">
+          <li> 
+          <a href="https://docs.flutter.dev/get-started/quick">Descargar Flutter para tu sistema operativo. Instala siguiendo las instrucciones oficiales.<br>
+          Ver vídeo (Pendiente)</li>
+        </ul>
       </div>
     <br>
-  <h2 class="text-2xl font-bold text-indigo-600 mb-4">1.1 ¿Por qué aprender Dart para Flutter?</h2>
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">1.1 ¿Por qué aprender Dart para Flutter?  <a href="#tabla-contenidos" class="ml-2 text-indigo-500 hover:text-indigo-700" title="Volver a la tabla de contenidos">
+      <i class="fas fa-arrow-up text-sm"></i>
+    </a></h2>
   
   <p class="text-gray-700 mb-4">
     Antes de comenzar a aprender Flutter, es imprescindible dominar primero el lenguaje Dart. Flutter utiliza Dart para definir toda la lógica, las estructuras de datos, la gestión del estado y gran parte del comportamiento interno de una aplicación.
@@ -124,7 +124,11 @@
 
     <!-- Section 2 -->
     <section id="variables" class="mb-12 bg-white p-6 rounded-lg shadow">
-      <h2 class="text-2xl font-bold text-indigo-600 mb-4">2. Variables</h2>
+      <h2 class="text-2xl font-bold text-indigo-600 mb-4">2. Variables y tipos de datos 
+         <a href="#tabla-contenidos" class="ml-2 text-indigo-500 hover:text-indigo-700" title="Volver a la tabla de contenidos">
+      <i class="fas fa-arrow-up text-sm"></i>
+    </a>
+      </h2>
       <p class="mb-4">
         En Dart, una variable es un espacio en memoria donde se almacena un valor. El lenguaje permite declarar variables de diferentes maneras según el nivel de estrictitud y el momento en que se conoce el tipo del dato.
       </p>
@@ -195,7 +199,9 @@
 
     <!-- Section 3: Entrada de datos -->
   <section id="entrada" class="mb-12 bg-white p-6 rounded-lg shadow">
-      <h2 class="text-2xl font-bold text-indigo-600 mb-4">3. Entrada de Datos (desde consola)</h2>
+      <h2 class="text-2xl font-bold text-indigo-600 mb-4">3. Entrada de Datos (desde consola)  <a href="#tabla-contenidos" class="ml-2 text-indigo-500 hover:text-indigo-700" title="Volver a la tabla de contenidos">
+      <i class="fas fa-arrow-up text-sm"></i>
+    </a></h2>
   
   <p class="text-gray-700 mb-4">
     En Dart, para leer datos desde la consola (entrada estándar), se utiliza la librería 
@@ -261,7 +267,11 @@ void main() {
 
     <!-- Section 4 -->
 <section id="condicionales" class="mb-12 bg-white p-6 rounded-lg shadow">
-  <h2 class="text-2xl font-bold text-indigo-600 mb-4">4. Estructuras Condicionales</h2>
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">4. Estructuras Condicionales
+     <a href="#tabla-contenidos" class="ml-2 text-indigo-500 hover:text-indigo-700" title="Volver a la tabla de contenidos">
+      <i class="fas fa-arrow-up text-sm"></i>
+    </a>
+  </h2>
 
   <p class="text-gray-700 mb-4">
     Las estructuras condicionales permiten ejecutar diferentes bloques de código según se cumpla o no una condición.
@@ -348,7 +358,11 @@ if (edad >= 18 && tieneLicencia) {
 </section>
    <!-- Section 15 -->
 <section id="bucles-control" class="mb-12 bg-white p-6 rounded-lg shadow">
-  <h2 class="text-2xl font-bold text-indigo-600 mb-4">5. Bucles y Estructuras de Control</h2>
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">5. Bucles y Estructuras de Control
+     <a href="#tabla-contenidos" class="ml-2 text-indigo-500 hover:text-indigo-700" title="Volver a la tabla de contenidos">
+      <i class="fas fa-arrow-up text-sm"></i>
+    </a>
+  </h2>
 
   <p class="text-gray-700 mb-4">
     Dart ofrece varias estructuras para controlar el flujo de ejecución: bucles para repetir tareas
@@ -455,7 +469,11 @@ do {
     <!-- Section 6 -->
     <!-- Section 6 -->
 <section id="funciones" class="mb-12 bg-white p-6 rounded-lg shadow">
-  <h2 class="text-2xl font-bold text-indigo-600 mb-4">6. Funciones</h2>
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">6. Funciones
+     <a href="#tabla-contenidos" class="ml-2 text-indigo-500 hover:text-indigo-700" title="Volver a la tabla de contenidos">
+      <i class="fas fa-arrow-up text-sm"></i>
+    </a>
+  </h2>
 
   <p class="text-gray-700 mb-4">
     Las funciones en Dart son bloques de código reutilizables que pueden recibir parámetros y devolver un valor.
@@ -561,10 +579,18 @@ void main() {
     </li>
   </ul>
 </section>
-<h2 id="colecciones" class="text-2xl font-bold text-indigo-600 mb-4 mt-12">7. Colecciones</h2>
+<h2 id="colecciones" class="text-2xl font-bold text-indigo-600 mb-4 mt-12">7. Colecciones
+   <a href="#tabla-contenidos" class="ml-2 text-indigo-500 hover:text-indigo-700" title="Volver a la tabla de contenidos">
+      <i class="fas fa-arrow-up text-sm"></i>
+    </a>
+</h2>
 <p class="text-gray-700 mb-6">Las colecciones en Dart te permiten agrupar y manipular múltiples valores de forma eficiente.</p>
 <section id="list" class="mb-12 bg-white p-6 rounded-lg shadow">
-  <h2 class="text-2xl font-bold text-indigo-600 mb-4">7.1 List (listas)</h2>
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">7.1 List (listas)
+     <a href="#tabla-contenidos" class="ml-2 text-indigo-500 hover:text-indigo-700" title="Volver a la tabla de contenidos">
+      <i class="fas fa-arrow-up text-sm"></i>
+    </a>
+  </h2>
 
   <p class="text-gray-700 mb-4">
     Una <code class="bg-gray-100 px-1 rounded">List</code> en Dart es una colección ordenada de elementos, 
@@ -687,7 +713,11 @@ if (5 < meses.length) {
 
     <!-- Section 8 -->
 <section id="sets" class="mb-12 bg-white p-6 rounded-lg shadow">
-  <h2 class="text-2xl font-bold text-indigo-600 mb-4">7.2 Sets (conjuntos)</h2>
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">7.2 Sets (conjuntos)
+     <a href="#tabla-contenidos" class="ml-2 text-indigo-500 hover:text-indigo-700" title="Volver a la tabla de contenidos">
+      <i class="fas fa-arrow-up text-sm"></i>
+    </a>
+  </h2>
 
   <p class="text-gray-700 mb-4">
     Un <code class="bg-gray-100 px-1 rounded">Set</code> en Dart es una colección no ordenada de elementos <strong>únicos</strong>.
@@ -772,7 +802,11 @@ for (String color in colores) {
 
    <!-- Section 9 -->
 <section id="map" class="mb-12 bg-white p-6 rounded-lg shadow">
-  <h2 class="text-2xl font-bold text-indigo-600 mb-4">7.3 Map (diccionarios)</h2>
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">7.3 Map (diccionarios)
+     <a href="#tabla-contenidos" class="ml-2 text-indigo-500 hover:text-indigo-700" title="Volver a la tabla de contenidos">
+      <i class="fas fa-arrow-up text-sm"></i>
+    </a>
+  </h2>
 
   <p class="text-gray-700 mb-4">
     Un <code class="bg-gray-100 px-1 rounded">Map</code> en Dart almacena pares de <strong>clave-valor</strong>.
@@ -889,7 +923,11 @@ print(usuarios["user1"]?["nombre"]); // "Carlos"</pre>
 
    <!-- Section 12 -->
 <section id="nulabilidad" class="mb-12 bg-white p-6 rounded-lg shadow">
-  <h2 class="text-2xl font-bold text-indigo-600 mb-4">9. Nulabilidad (Null Safety)</h2>
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">8. Nulabilidad (Null Safety)
+     <a href="#tabla-contenidos" class="ml-2 text-indigo-500 hover:text-indigo-700" title="Volver a la tabla de contenidos">
+      <i class="fas fa-arrow-up text-sm"></i>
+    </a>
+  </h2>
 
   <p class="text-gray-700 mb-4">
     Dart incluye <strong>Null Safety</strong> desde la versión 2.12, un sistema que evita errores en tiempo de ejecución
@@ -986,7 +1024,11 @@ void main() {
 </section>
   <!-- Section 13 -->
 <section id="clases-poo" class="mb-12 bg-white p-6 rounded-lg shadow">
-  <h2 class="text-2xl font-bold text-indigo-600 mb-4">10. Clases y Programación Orientada a Objetos (POO)</h2>
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">9. Clases y Programación Orientada a Objetos (POO)
+     <a href="#tabla-contenidos" class="ml-2 text-indigo-500 hover:text-indigo-700" title="Volver a la tabla de contenidos">
+      <i class="fas fa-arrow-up text-sm"></i>
+    </a>
+  </h2>
 
   <p class="text-gray-700 mb-4">
     Dart es un lenguaje orientado a objetos. Todo valor es un objeto, incluyendo números, funciones y <code>null</code>.
@@ -1139,7 +1181,11 @@ void main() {
 </section>
 <!-- Section 14 -->
 <section id="ejercicios" class="mb-12 bg-white p-6 rounded-lg shadow">
-  <h2 class="text-2xl font-bold text-indigo-600 mb-4">11. Ejercicios Prácticos</h2>
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">10. Ejercicios Prácticos
+     <a href="#tabla-contenidos" class="ml-2 text-indigo-500 hover:text-indigo-700" title="Volver a la tabla de contenidos">
+      <i class="fas fa-arrow-up text-sm"></i>
+    </a>
+  </h2>
 
   <p class="text-gray-700 mb-6">
     A continuación, dos ejercicios que aplican los conceptos vistos: estructuras de control, funciones, colecciones, nulabilidad y programación orientada a objetos. Son ejemplos avanzados. 
@@ -1314,7 +1360,7 @@ void main() {
 
     <!-- Footer -->
     <footer class="text-center text-gray-500 text-sm mt-12">
-      <p>Apuntes de Dart – Fundamentos | Generado con Tailwind CSS</p>
+      <p>Apuntes de Dart – Fundamentos | Documentación generada por Fernando del Fresno García e IA</p>
     </footer>
   </div>
   <script>
