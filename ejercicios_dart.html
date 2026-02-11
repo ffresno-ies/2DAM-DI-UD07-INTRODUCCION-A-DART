@@ -96,7 +96,7 @@
   </style>
 </head>
 <body>
-
+ <div id="menu"></div>
   <nav id="sidebar">
     <h2>Ejercicios</h2>
     <ul>
@@ -1229,6 +1229,12 @@ void main() {
   });
 }</code></pre>
   </details>
-
+<script>
+  fetch("menu.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("menu").innerHTML = data;
+    });
+</script>
 </body>
 </html>
