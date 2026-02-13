@@ -166,6 +166,7 @@
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+  <div id="menu"></div>
   <div class="layout-container">
     <nav id="sidebar">
       <h2>Ejercicios</h2>
@@ -1294,5 +1295,12 @@ void main() {
     </details>
   </div>
   </div>
+  <script>
+        fetch("menu.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("menu").innerHTML = data;
+            });
+    </script>
 </body>
 </html>
