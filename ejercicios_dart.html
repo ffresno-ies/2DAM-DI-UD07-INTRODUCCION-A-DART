@@ -7,37 +7,37 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      margin: 0;
-      padding: 20px;
-      background: #fff;
+    /* Layout con Flexbox SIN sobreescribir estilos de Tailwind */
+    .layout-container {
+      display: flex;
+      min-height: 100vh;
     }
 
     #sidebar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 200px;
+      width: 220px;
       height: 100vh;
       overflow-y: auto;
       background: #f9f9f9;
       padding: 20px;
       border-right: 1px solid #ddd;
       font-size: 14px;
+      box-sizing: border-box;
+      flex-shrink: 0;
     }
 
-    body {
-      margin-left: 260px;
-      padding: 20px 20px 40px 20px;
+    #content-wrapper {
+      flex: 1;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
     }
 
     #sidebar h2 {
       font-size: 18px;
       margin-top: 0;
       margin-bottom: 16px;
+      font-weight: 600;
     }
 
     #sidebar ul {
@@ -60,8 +60,63 @@
       text-decoration: underline;
     }
 
-    h1, h2 {
-      color: #222;
+    /* Estilos específicos para el contenido - SIN sobreescribir Tailwind */
+    #content-wrapper h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      margin-top: 1rem;
+      color: #1f2937;
+    }
+
+    #content-wrapper h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #374151;
+    }
+
+    #content-wrapper p {
+      margin-bottom: 1rem;
+      line-height: 1.75;
+      color: #4b5563;
+    }
+
+    #content-wrapper ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    #content-wrapper ol {
+      list-style: decimal;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    #content-wrapper li {
+      margin-bottom: 0.5rem;
+      line-height: 1.75;
+      color: #4b5563;
+    }
+
+    #content-wrapper a {
+      color: #2563eb;
+      text-decoration: underline;
+    }
+
+    #content-wrapper a:hover {
+      color: #1d4ed8;
+    }
+
+    #content-wrapper strong {
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    #content-wrapper em {
+      font-style: italic;
     }
 
     pre {
@@ -70,109 +125,119 @@
       border-radius: 6px;
       overflow-x: auto;
       margin: 16px 0;
+      border: 1px solid #e5e7eb;
     }
 
     code {
       font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
       font-size: 14px;
+      line-height: 1.5;
     }
 
     details summary {
       cursor: pointer;
       font-weight: bold;
       margin: 12px 0 8px 0;
+      color: #2563eb;
+      padding: 8px;
+      background: #f3f4f6;
+      border-radius: 4px;
+    }
+
+    details summary:hover {
+      background: #e5e7eb;
     }
 
     blockquote {
       margin: 16px 0;
       padding-left: 16px;
-      border-left: 3px solid #ccc;
+      border-left: 3px solid #3b82f6;
       color: #555;
+      background: #f9fafb;
+      padding: 12px 16px;
+      border-radius: 4px;
     }
 
-    img[alt="Dart logo"] {
+    #content-wrapper img[alt="Dart logo"] {
       display: block;
-      margin: 20px 0;
+      margin: 20px auto;
       max-width: 200px;
     }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
-  <div id="menu"></div>
+  <div class="layout-container">
+    <nav id="sidebar">
+      <h2>Ejercicios</h2>
+      <ul>
+        <li><a href="#Exercise-1">Ejercicio 1</a></li>
+        <li><a href="#Exercise-2">Ejercicio 2</a></li>
+        <li><a href="#Exercise-3">Ejercicio 3</a></li>
+        <li><a href="#Exercise-4">Ejercicio 4</a></li>
+        <li><a href="#Exercise-5">Ejercicio 5</a></li>
+        <li><a href="#Exercise-6">Ejercicio 6</a></li>
+        <li><a href="#Exercise-7">Ejercicio 7</a></li>
+        <li><a href="#Exercise-8">Ejercicio 8</a></li>
+        <li><a href="#Exercise-9">Ejercicio 9</a></li>
+        <li><a href="#Exercise-10">Ejercicio 10</a></li>
+        <li><a href="#Exercise-11">Ejercicio 11</a></li>
+        <li><a href="#Exercise-12">Ejercicio 12</a></li>
+        <li><a href="#Exercise-13">Ejercicio 13</a></li>
+        <li><a href="#Exercise-14">Ejercicio 14</a></li>
+        <li><a href="#Exercise-15">Ejercicio 15</a></li>
+        <li><a href="#Exercise-16">Ejercicio 16</a></li>
+        <li><a href="#Exercise-17">Ejercicio 17</a></li>
+        <li><a href="#Exercise-18">Ejercicio 18</a></li>
+        <li><a href="#Exercise-19">Ejercicio 19</a></li>
+        <li><a href="#Exercise-20">Ejercicio 20</a></li>
+        <li><a href="#Exercise-21">Ejercicio 21</a></li>
+        <li><a href="#Exercise-22">Ejercicio 22</a></li>
+        <li><a href="#Exercise-23">Ejercicio 23</a></li>
+        <li><a href="#Exercise-24">Ejercicio 24</a></li>
+        <li><a href="#Exercise-25">Ejercicio 25</a></li>
+        <li><a href="#Exercise-26">Ejercicio 26</a></li>
+        <li><a href="#Exercise-27">Ejercicio 27</a></li>
+        <li><a href="#Exercise-28">Ejercicio 28</a></li>
+      </ul>
+    </nav>
 
-  <nav id="sidebar">
-    <h2>Ejercicios</h2>
-    <ul>
-      <li><a href="#Exercise-1">Ejercicio 1</a></li>
-      <li><a href="#Exercise-2">Ejercicio 2</a></li>
-      <li><a href="#Exercise-3">Ejercicio 3</a></li>
-      <li><a href="#Exercise-4">Ejercicio 4</a></li>
-      <li><a href="#Exercise-5">Ejercicio 5</a></li>
-      <li><a href="#Exercise-6">Ejercicio 6</a></li>
-      <li><a href="#Exercise-7">Ejercicio 7</a></li>
-      <li><a href="#Exercise-8">Ejercicio 8</a></li>
-      <li><a href="#Exercise-9">Ejercicio 9</a></li>
-      <li><a href="#Exercise-10">Ejercicio 10</a></li>
-      <li><a href="#Exercise-11">Ejercicio 11</a></li>
-      <li><a href="#Exercise-12">Ejercicio 12</a></li>
-      <li><a href="#Exercise-13">Ejercicio 13</a></li>
-      <li><a href="#Exercise-14">Ejercicio 14</a></li>
-      <li><a href="#Exercise-15">Ejercicio 15</a></li>
-      <li><a href="#Exercise-16">Ejercicio 16</a></li>
-      <li><a href="#Exercise-17">Ejercicio 17</a></li>
-      <li><a href="#Exercise-18">Ejercicio 18</a></li>
-      <li><a href="#Exercise-19">Ejercicio 19</a></li>
-      <li><a href="#Exercise-20">Ejercicio 20</a></li>
-      <li><a href="#Exercise-21">Ejercicio 21</a></li>
-      <li><a href="#Exercise-22">Ejercicio 22</a></li>
-      <li><a href="#Exercise-23">Ejercicio 23</a></li>
-      <li><a href="#Exercise-24">Ejercicio 24</a></li>
-      <li><a href="#Exercise-25">Ejercicio 25</a></li>
-      <li><a href="#Exercise-26">Ejercicio 26</a></li>
-      <li><a href="#Exercise-27">Ejercicio 27</a></li>
-      <li><a href="#Exercise-28">Ejercicio 28</a></li>
-    </ul>
-  </nav>
+    <div id="content-wrapper">
+      <img src="./Ejercicio Dart - Castellano_files/imagen_dart.png" alt="Dart logo" />
 
-  <img src="./Ejercicio Dart - Castellano_files/imagen_dart.png" alt="Dart logo" />
+      <h1>Práctica de Dart: ejercicios para aprender Dart</h1>
+      <p>
+        Estos ejercicios completan la formación que hemos recorrido en las dos partes anteriores: la instalación del entorno para programar en Dart y un repaso general al lenguaje con sus características. Los siguientes ejercicios que se proponen servirán para afianzar todo lo aprendido.<br> No son obligatorios ni se deben entregar.
+      </p>
+      <p>
+        Las soluciones se proporcionan en <a href="https://dart.dev/guides/language/language-tour" target="_blank">lenguaje Dart</a> 
+        y se ha confirmado su funcionamiento en la versión 2.9.0 del SDK. 
+        Las soluciones son aptas para principiantes y no tienen por que estar optimizadas, simplemente están hechas para aprender el uso del lenguaje Dart.
+      </p>
 
-  <h1>Práctica de Dart: ejercicios para aprender Dart</h1>
-  <p>
-    Estos ejercicios completan la formación que hemos recorrido en las dos partes anteriores: la instalación del entorno para programar en Dart y un repaso general al lenguaje con sus características. Los siguientes ejercicios que se proponen servirán para afianzar todo lo aprendido.<br> No son obligatorios ni se deben entregar.
-  </p>
-  <p>
-    Las soluciones se proporcionan en <a href="https://dart.dev/guides/language/language-tour" target="_blank">lenguaje Dart</a> 
-    y se ha confirmado su funcionamiento en la versión 2.9.0 del SDK. 
-    Las soluciones son aptas para principiantes y no tienen por que estar optimizadas, simplemente están hechas para aprender el uso del lenguaje Dart.
-  </p>
+      <ul>
+        <li><a href="https://github.com/Dataquark/Practice-Dart" target="_blank">Enlace al repositorio de Github con las soluciones</a></li>
+        <li><a href="https://dart.dev/guides/language/language-tour" target="_blank">Recorrido lingüístico por Dart</a></li>
+      </ul>
 
-  <ul>
-    <li><a href="https://github.com/Dataquark/Practice-Dart" target="_blank">Enlace al repositorio de Github con las soluciones</a></li>
-    <li><a href="https://dart.dev/guides/language/language-tour" target="_blank">Recorrido lingüístico por Dart</a></li>
-  </ul>
+      <h2>Ejecutando el código</h2>
+      <ol>
+        <li>Ya debes haber pasado por <a href="./dart_instalaciones_necesarias.html">Lenguaje Dart - Instalaciones recomendadas</a></li>
+        <li>Ya debes haber pasado por los fundamentos de dar con un mini repaso a este lenguaje <a href="./fundamentos_dart.html">donde aprender los fundamentos del lenguaje Dart</a></li>
+        <li>Puedes ejecutar el código en <a href="https://dartpad.dev" target="_blank">DartPad</a> o <a href="https://repl.it" target="_blank">Repl.it</a> 
+      (selecciona Dart en las opciones).<br>
+      <em>Sin embargo, ten en cuenta que DartPad no permite operaciones de E/S, mientras que Repl.it sí. </em></li>
+        <li><strong>Lo mejor es que lo hagas en tu entorno local.</strong></li>
+      </ol>
 
-  <h2>Ejecutando el código</h2>
-  <ol>
-    <li>Ya debes haber pasado por <a href="./dart_instalaciones_necesarias.html">Lenguaje Dart - Instalaciones recomendadas</a></li>
-    <li>Ya debes haber pasado por los fundamentos de dar con un mini repaso a este lenguaje <a href="./fundamentos_dart.html">donde aprender los fundamentos del lenguaje Dart</a></li>
-    <li>Puedes ejecutar el código en <a href="https://dartpad.dev" target="_blank">DartPad</a> o <a href="https://repl.it" target="_blank">Repl.it</a> 
-  (selecciona Dart en las opciones).<br>
-  <em>Sin embargo, ten en cuenta que DartPad no permite operaciones de E/S, mientras que Repl.it sí. </em></li>
-  <li><strong>Lo mejor es que lo hagas en tu entorno local.</strong></li>
-  </ol>
-
-  <p>¡Vamos a ello!</p>
-
-  <!--<pre><code class="language-shell">PS C:\Users\Desktop&gt; dart code-file.dart</code></pre>-->
+      <p>¡Vamos a ello!</p>
 
 
-  <!-- Ejercicio 1 -->
-  <h2 id="Exercise-1">Ejercicio 1</h2>
-  <p><em>Crea un programa que pida al usuario su nombre y edad. Imprime un mensaje indicando cuántos años le faltan para cumplir 100 años.</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">
-      // Importamos la librería para poder leer y escribir por la consola
+    <!-- Ejercicio 1 -->
+    <h2 id="Exercise-1">Ejercicio 1</h2>
+    <p><em>Crea un programa que pida al usuario su nombre y edad. Imprime un mensaje indicando cuántos años le faltan para cumplir 100 años.</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">// Importamos la librería para poder leer y escribir por la consola
 import 'dart:io';
 
 void main() {
@@ -201,16 +266,15 @@ void main() {
     int faltan = 100 - edad;
     print("Te faltan $faltan años para cumplir 100");
   }
-}
-</code></pre>
-  </details>
+}</code></pre>
+    </details>
 
-  <!-- Ejercicio 2 -->
-  <h2 id="Exercise-2">Ejercicio 2</h2>
-  <p><em>Solicitar un número al usuario. Según sea par o impar, imprimir un mensaje apropiado.</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 2 -->
+    <h2 id="Exercise-2">Ejercicio 2</h2>
+    <p><em>Solicitar un número al usuario. Según sea par o impar, imprimir un mensaje apropiado.</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 void main() {
   stdout.write("Introduce un número: ");
   // numberInput guardará un número entero o null si no se puede convertir
@@ -226,16 +290,16 @@ void main() {
       }
   }
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 3 -->
-  <h2 id="Exercise-3">Ejercicio 3</h2>
-  <p><em>Tome una lista, digamos por ejemplo ésta:
-    <code>a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]</code>
-    y escribir un programa que imprima todos los elementos de la lista que sean menores a 5.</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">void main() {
+    <!-- Ejercicio 3 -->
+    <h2 id="Exercise-3">Ejercicio 3</h2>
+    <p><em>Tome una lista, digamos por ejemplo ésta:
+      <code>a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]</code>
+      y escribir un programa que imprima todos los elementos de la lista que sean menores a 5.</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">void main() {
   List<int> a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
   //recorrido de la lista
   for (var i in a) {
@@ -246,21 +310,17 @@ void main() {
   // impresión en una linea
   print([for (var i in a) if (i < 5) i]);
 }</code></pre>
+    </details>
 
-  </details>
-
-    
-  
-
-  <!-- Ejercicio 4 -->
-  <h2 id="Exercise-4">Ejercicio 4</h2>
-  <p><em>Crea un programa que le pida al usuario un número y luego imprima una lista de todos los divisores de ese número.</em></p>
-  <blockquote>
-    <p>Si no sabes qué es un divisor, es un número que divide a otro número de forma exacta. Por ejemplo, 13 es divisor de 26 porque 26/13 no tiene resto.</p>
-  </blockquote>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 4 -->
+    <h2 id="Exercise-4">Ejercicio 4</h2>
+    <p><em>Crea un programa que le pida al usuario un número y luego imprima una lista de todos los divisores de ese número.</em></p>
+    <blockquote>
+      <p>Si no sabes qué es un divisor, es un número que divide a otro número de forma exacta. Por ejemplo, 13 es divisor de 26 porque 26/13 no tiene resto.</p>
+    </blockquote>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 
 void main() {
   stdout.write("Please choose a number: ");
@@ -271,17 +331,17 @@ void main() {
     }
   }
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 5 -->
-  <h2 id="Exercise-5">Ejercicio 5</h2>
-  <p><em>Tomemos dos listas, por ejemplo:
-    <code>a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]</code><br>
-    <code>b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]</code><br>
-    y escribe un programa que devuelva una lista que contenga solo los elementos comunes (sin duplicados).</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">void main() {
+    <!-- Ejercicio 5 -->
+    <h2 id="Exercise-5">Ejercicio 5</h2>
+    <p><em>Tomemos dos listas, por ejemplo:
+      <code>a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]</code><br>
+      <code>b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]</code><br>
+      y escribe un programa que devuelva una lista que contenga solo los elementos comunes (sin duplicados).</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">void main() {
   List&lt;int&gt; a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
   List&lt;int&gt; b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 89];
   Set&lt;int&gt; c = {};
@@ -298,11 +358,10 @@ void main() {
   // One liner using set intersections
   print(Set.from(a).intersection(Set.from(b)).toList());
 }</code></pre>
-  </details>
-<details>
-    <summary>Solución optimizada</summary>
-    <pre><code class="language-dart">
-  void main() {
+    </details>
+    <details>
+      <summary>Solución optimizada</summary>
+      <pre><code class="language-dart">void main() {
   // Listas de números
   List<int> a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
   List<int> b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 89];
@@ -316,19 +375,18 @@ void main() {
 
   // Mostramos el resultado como lista
   print(comunes.toList());
-}
-</code></pre>
+}</code></pre>
+    </details>
 
-  </details>
-  <!-- Ejercicio 6 -->
-  <h2 id="Exercise-6">Ejercicio 6</h2>
-  <p><em>Pídale al usuario una cadena e imprima si esta cadena es un palíndromo o no.</em></p>
-  <blockquote>
-    <p>Un palíndromo es una cadena que se lee igual hacia adelante y hacia atrás.</p>
-  </blockquote>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 6 -->
+    <h2 id="Exercise-6">Ejercicio 6</h2>
+    <p><em>Pídale al usuario una cadena e imprima si esta cadena es un palíndromo o no.</em></p>
+    <blockquote>
+      <p>Un palíndromo es una cadena que se lee igual hacia adelante y hacia atrás.</p>
+    </blockquote>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 
 void main() {
   stdout.write("Escribe una palabra: ");
@@ -347,17 +405,19 @@ void main() {
       ? print("Es Palíndromo")
       : print("No Es Palíndromo");
 }</code></pre>
-  </details>
-  <p><blockquote><em>El operador ternario en Dart es una forma abreviada de escribir un if / else. Es muy útil cuando queremos tomar una decisión sencilla en una sola línea.<br>condición ? valorSiVerdadero : valorSiFalso;<br>Si la condición es verdadera, usa el primer valor; si es falsa, usa el segundo.<br>String resultado = nota >= 5 ? "Aprobado" : "Suspenso";</em></blockquote></p>
+    </details>
+    <blockquote>
+      <p><em>El operador ternario en Dart es una forma abreviada de escribir un if / else. Es muy útil cuando queremos tomar una decisión sencilla en una sola línea.<br>condición ? valorSiVerdadero : valorSiFalso;<br>Si la condición es verdadera, usa el primer valor; si es falsa, usa el segundo.<br>String resultado = nota >= 5 ? "Aprobado" : "Suspenso";</em></p>
+    </blockquote>
 
-  <!-- Ejercicio 7 -->
-  <h2 id="Exercise-7">Ejercicio 7</h2>
-  <p><em>Digamos que te dan una lista guardada en una variable:
-    <code>a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</code>.
-    Escribe un código Dart que tome esta lista y crea una nueva lista que solo tenga los elementos pares de esta lista.</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">void main() {
+    <!-- Ejercicio 7 -->
+    <h2 id="Exercise-7">Ejercicio 7</h2>
+    <p><em>Digamos que te dan una lista guardada en una variable:
+      <code>a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</code>.
+      Escribe un código Dart que tome esta lista y crea una nueva lista que solo tenga los elementos pares de esta lista.</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">void main() {
   List&lt;int&gt; a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100];
 
   List&lt;int&gt; l = [];
@@ -371,17 +431,17 @@ void main() {
   // One liner (mejor usando índice)
   print([for (int i = 0; i &lt; a.length; i++) if (i % 2 == 1) a[i]]);
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 8 -->
-  <h2 id="Exercise-8">Ejercicio 8</h2>
-  <p><em>Realiza un juego de piedra, papel y tijera para dos jugadores contra la computadora.</em></p>
-  <blockquote>
-    <p>Pida la opinión de los jugadores, compárelas e imprima un mensaje para el ganador.</p>
-  </blockquote>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 8 -->
+    <h2 id="Exercise-8">Ejercicio 8</h2>
+    <p><em>Realiza un juego de piedra, papel y tijera para dos jugadores contra la computadora.</em></p>
+    <blockquote>
+      <p>Pida la opinión de los jugadores, compárelas e imprima un mensaje para el ganador.</p>
+    </blockquote>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 import 'dart:math';
 
 void main() {
@@ -422,17 +482,17 @@ void main() {
     }
   }
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 9 -->
-  <h2 id="Exercise-9">Ejercicio 9</h2>
-  <p><em>Genere un número aleatorio entre 1 y 100. Pídale al usuario que adivine el número y luego dígale si adivinó demasiado bajo, demasiado alto o exactamente correcto.</em></p>
-  <blockquote>
-    <p>Realice un seguimiento de cuántas conjeturas ha realizado el usuario y, cuando finalice el juego, imprima esta información.</p>
-  </blockquote>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 9 -->
+    <h2 id="Exercise-9">Ejercicio 9</h2>
+    <p><em>Genere un número aleatorio entre 1 y 100. Pídale al usuario que adivine el número y luego dígale si adivinó demasiado bajo, demasiado alto o exactamente correcto.</em></p>
+    <blockquote>
+      <p>Realice un seguimiento de cuántas conjeturas ha realizado el usuario y, cuando finalice el juego, imprima esta información.</p>
+    </blockquote>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 import 'dart:math';
 
 void main() {
@@ -468,14 +528,14 @@ guessingGame() {
     }
   }
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 10 -->
-  <h2 id="Exercise-10">Ejercicio 10</h2>
-  <p><em>Pídale al usuario un número y determine si el número es primo o no. Hazlo usando una función.</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 10 -->
+    <h2 id="Exercise-10">Ejercicio 10</h2>
+    <p><em>Pídale al usuario un número y determine si el número es primo o no. Hazlo usando una función.</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 
 void main() {
   stdout.write("Please give us a number: ");
@@ -494,16 +554,16 @@ void checkPrime(int number) {
       ? print("The chosen number is a prime")
       : print("The chosen number is not a prime");
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 11 -->
-  <h2 id="Exercise-11">Ejercicio 11</h2>
-  <p><em>Escriba un programa que tome una lista de números, por ejemplo:
-    <code>a = [5, 10, 15, 20, 25]</code>
-    y crea una nueva lista con solo el primer y el último elemento de la lista dada. Para practicar, escribe este código dentro de una función.</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:math';
+    <!-- Ejercicio 11 -->
+    <h2 id="Exercise-11">Ejercicio 11</h2>
+    <p><em>Escriba un programa que tome una lista de números, por ejemplo:
+      <code>a = [5, 10, 15, 20, 25]</code>
+      y crea una nueva lista con solo el primer y el último elemento de la lista dada. Para practicar, escribe este código dentro de una función.</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:math';
 
 void main() {
   final random = Random();
@@ -516,17 +576,17 @@ void main() {
 List&lt;int&gt; newList(List&lt;int&gt; initialList) {
   return [initialList.first, initialList.last];
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 12 -->
-  <h2 id="Exercise-12">Ejercicio 12</h2>
-  <p><em>Escribe un programa que pregunte al usuario cuántos números de Fibonacci debe generar y que luego los genere.</em></p>
-  <blockquote>
-    <p>Asegúrese de pedirle al usuario que ingrese la cantidad de números en la secuencia a generar.</p>
-  </blockquote>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 12 -->
+    <h2 id="Exercise-12">Ejercicio 12</h2>
+    <p><em>Escribe un programa que pregunte al usuario cuántos números de Fibonacci debe generar y que luego los genere.</em></p>
+    <blockquote>
+      <p>Asegúrese de pedirle al usuario que ingrese la cantidad de números en la secuencia a generar.</p>
+    </blockquote>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 
 void main() {
   stdout.write("How many Fibonacci numbers do you want? ");
@@ -544,14 +604,14 @@ List&lt;int&gt; fibonacciNumbers(int chosenNumber) {
   }
   return fibList;
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 13 -->
-  <h2 id="Exercise-13">Ejercicio 13</h2>
-  <p><em>Escriba un programa (función) que tome una lista y devuelva una nueva lista que contenga todos los elementos de la primera lista menos todos los duplicados.</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:math';
+    <!-- Ejercicio 13 -->
+    <h2 id="Exercise-13">Ejercicio 13</h2>
+    <p><em>Escriba un programa (función) que tome una lista y devuelva una nueva lista que contenga todos los elementos de la primera lista menos todos los duplicados.</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:math';
 
 void main() {
   final random = Random();
@@ -564,15 +624,15 @@ void main() {
 List&lt;int&gt; removeDuplicates(List&lt;int&gt; initialList) {
   return initialList.toSet().toList();
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 14 -->
-  <h2 id="Exercise-14">Ejercicio 14</h2>
-  <p><em>Escriba un programa (¡usando funciones!) que solicite al usuario una cadena larga con varias palabras. Imprima al usuario la misma cadena, pero con las palabras en orden inverso.</em></p>
-  <p>Por ejemplo, si escribe: <code>My name is Michele</code><br>Entonces vería: <code>Michele is name My</code></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 14 -->
+    <h2 id="Exercise-14">Ejercicio 14</h2>
+    <p><em>Escriba un programa (¡usando funciones!) que solicite al usuario una cadena larga con varias palabras. Imprima al usuario la misma cadena, pero con las palabras en orden inverso.</em></p>
+    <p>Por ejemplo, si escribe: <code>My name is Michele</code><br>Entonces vería: <code>Michele is name My</code></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 
 void main() {
   stdout.write("Please give a sentence: ");
@@ -585,17 +645,17 @@ void reverseSentence(String sentence) {
   String a = sentence.split(" ").reversed.toList().join(" ");
   print(a);
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 15 -->
-  <h2 id="Exercise-15">Ejercicio 15</h2>
-  <p><em>Crea un generador de contraseñas en Dart. Las contraseñas seguras combinan letras minúsculas, mayúsculas, números y símbolos. Pregúntale al usuario qué tan segura quiere que sea su contraseña.</em></p>
-  <blockquote>
-    <p>No uses la contraseña generada en tus cuentas reales.</p>
-  </blockquote>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:convert';
+    <!-- Ejercicio 15 -->
+    <h2 id="Exercise-15">Ejercicio 15</h2>
+    <p><em>Crea un generador de contraseñas en Dart. Las contraseñas seguras combinan letras minúsculas, mayúsculas, números y símbolos. Pregúntale al usuario qué tan segura quiere que sea su contraseña.</em></p>
+    <blockquote>
+      <p>No uses la contraseña generada en tus cuentas reales.</p>
+    </blockquote>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 
@@ -625,14 +685,14 @@ void passwordGenerator(String strength) {
     print("Incorrect word is given");
   }
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 16 -->
-  <h2 id="Exercise-16">Ejercicio 16</h2>
-  <p><em>Crea un programa que juegue al juego de las vacas y los toros con el usuario.</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 16 -->
+    <h2 id="Exercise-16">Ejercicio 16</h2>
+    <p><em>Crea un programa que juegue al juego de las vacas y los toros con el usuario.</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 import 'dart:math';
 
 void main() {
@@ -673,14 +733,14 @@ void main() {
     print("\nAttempts: $attempts \nCows: $cows, Bulls: $bulls");
   }
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 17 -->
-  <h2 id="Exercise-17">Ejercicio 17</h2>
-  <p><em>Pregúntele al usuario qué tamaño de tablero de juego desea dibujar y dibújelo para él en la pantalla.</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 17 -->
+    <h2 id="Exercise-17">Ejercicio 17</h2>
+    <p><em>Pregúntele al usuario qué tamaño de tablero de juego desea dibujar y dibújelo para él en la pantalla.</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 
 void main() {
   stdout.write("What square size do you want: ");
@@ -701,17 +761,17 @@ void drawBoard(int squareSize) {
 
   print("${rowLines * squareSize}\n");
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 18 -->
-  <h2 id="Exercise-18">Ejercicio 18</h2>
-  <p><em>Dada una lista de 3x3 que representa un tablero de tres en raya, indique si alguien ganó y qué jugador ganó.</em></p>
-  <blockquote>
-    <p>Se gana en Tres en raya con tres en raya, ya sea en fila, columna o diagonal.</p>
-  </blockquote>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">void main() {
+    <!-- Ejercicio 18 -->
+    <h2 id="Exercise-18">Ejercicio 18</h2>
+    <p><em>Dada una lista de 3x3 que representa un tablero de tres en raya, indique si alguien ganó y qué jugador ganó.</em></p>
+    <blockquote>
+      <p>Se gana en Tres en raya con tres en raya, ya sea en fila, columna o diagonal.</p>
+    </blockquote>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">void main() {
   List&lt;List&lt;int&gt;&gt; finalBoard = [
     [1, 0, 0],
     [0, 1, 0],
@@ -754,14 +814,14 @@ List&lt;List&lt;int&gt;&gt; diagonals(List&lt;List&lt;int&gt;&gt; board) {
     [for (var i = 0; i &lt; board.length; i++) board[i].reversed.toList()[i]]
   ];
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 19 -->
-  <h2 id="Exercise-19">Ejercicio 19</h2>
-  <p><em>Gestionar la entrada del usuario en un tablero de tres en raya: pedir coordenadas y colocar la ficha (X u O).</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 19 -->
+    <h2 id="Exercise-19">Ejercicio 19</h2>
+    <p><em>Gestionar la entrada del usuario en un tablero de tres en raya: pedir coordenadas y colocar la ficha (X u O).</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 
 void main() {
   List&lt;List&lt;String&gt;&gt; initialBoard =
@@ -777,14 +837,14 @@ void drawBoard(List&lt;List&lt;String&gt;&gt; board, int currentUser) {
   board[int.parse(choice[0])][int.parse(choice[1])] = move;
   print(board);
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 20 -->
-  <h2 id="Exercise-20">Ejercicio 20</h2>
-  <p><strong>¡Juego completo de tres en raya para dos jugadores!</strong></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 20 -->
+    <h2 id="Exercise-20">Ejercicio 20</h2>
+    <p><strong>¡Juego completo de tres en raya para dos jugadores!</strong></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 
 void main() {
   List&lt;List&lt;String&gt;&gt; theBoard =
@@ -871,8 +931,8 @@ List&lt;List&lt;String&gt;&gt; transpose(List&lt;List&lt;String&gt;&gt; board) {
 
 List&lt;List&lt;String&gt;&gt; diagonals(List&lt;List&lt;String&gt;&gt; board) {
   return [
-    [for (var i = 0; i &lt; board.length; i) board[i][i]],
-    [for (var i = 0; i &lt; board.length; i) board[i].reversed.toList()[i]]
+    [for (var i = 0; i &lt; board.length; i++) board[i][i]],
+    [for (var i = 0; i &lt; board.length; i++) board[i].reversed.toList()[i]]
   ];
 }
 
@@ -885,14 +945,14 @@ int drawGame(List&lt;List&lt;String&gt;&gt; board) {
   }
   return count;
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 21 -->
-  <h2 id="Exercise-21">Ejercicio 21</h2>
-  <p><em>Usted tiene un número en mente (0–100). El programa lo adivina preguntando "¿es alto, bajo o correcto?".</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 21 -->
+    <h2 id="Exercise-21">Ejercicio 21</h2>
+    <p><em>Usted tiene un número en mente (0–100). El programa lo adivina preguntando "¿es alto, bajo o correcto?".</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 import 'dart:math';
 
 void main() {
@@ -931,14 +991,14 @@ void compGuess() {
     }
   }
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 22 -->
-  <h2 id="Exercise-22">Ejercicio 22</h2>
-  <p><em>Implementa una función que tome tres variables y devuelva la mayor. ¡Sin usar <code>max()</code>!</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">void main() {
+    <!-- Ejercicio 22 -->
+    <h2 id="Exercise-22">Ejercicio 22</h2>
+    <p><em>Implementa una función que tome tres variables y devuelva la mayor. ¡Sin usar <code>max()</code>!</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">void main() {
   int a = 32;
   int b = 12;
   int c = 64;
@@ -960,14 +1020,14 @@ void compGuess() {
   l.sort();
   print(l.last);
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 23 -->
-  <h2 id="Exercise-23">Ejercicio 23</h2>
-  <p><em>Escribe una función que elija una palabra aleatoria de un archivo <code><a href="sowpods.txt">sowpods.txt</a></code>.</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 23 -->
+    <h2 id="Exercise-23">Ejercicio 23</h2>
+    <p><em>Escribe una función que elija una palabra aleatoria de un archivo <code><a href="sowpods.txt">sowpods.txt</a></code>.</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 import 'dart:math';
 
 void main() {
@@ -982,14 +1042,14 @@ String randomWord(String txt) {
   String word = wordList[random.nextInt(wordList.length)];
   return word;
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 24 -->
-  <h2 id="Exercise-24">Ejercicio 24</h2>
-  <p><em>Lógica del Ahorcado: adivinar letra por letra hasta completar la palabra.</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 24 -->
+    <h2 id="Exercise-24">Ejercicio 24</h2>
+    <p><em>Lógica del Ahorcado: adivinar letra por letra hasta completar la palabra.</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 
 void main() {
   String randomWord = "EVAPORATE";
@@ -1032,14 +1092,14 @@ void hangman(String word) {
     }
   }
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 25 -->
-  <h2 id="Exercise-25">Ejercicio 25</h2>
-  <p><em>Ahorcado completo: 6 intentos, historial de letras, carga desde archivo.</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 25 -->
+    <h2 id="Exercise-25">Ejercicio 25</h2>
+    <p><strong>Ahorcado completo: 6 intentos, historial de letras, carga desde archivo.</strong></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 import 'dart:math';
 
 void main() {
@@ -1118,14 +1178,14 @@ void intro() {
   To quit the game type "exit"
   """);
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 26 -->
-  <h2 id="Exercise-26">Ejercicio 26</h2>
-  <p><em>Diccionario de cumpleaños en memoria. Pide un nombre y devuelve su fecha.</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 26 -->
+    <h2 id="Exercise-26">Ejercicio 26</h2>
+    <p><em>Diccionario de cumpleaños en memoria. Pide un nombre y devuelve su fecha.</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 
 void main() {
   Map&lt;String, String&gt; birthdays = {
@@ -1145,14 +1205,14 @@ void main() {
 
   print("\n$choice's birthday is ${birthdays[choice]}\n");
 }</code></pre>
-  </details>
+    </details>
 
-  <!-- Ejercicio 27 -->
-  <h2 id="Exercise-27">Ejercicio 27</h2>
-  <p><em>Cargar y actualizar el diccionario de cumpleaños desde un archivo JSON.</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 27 -->
+    <h2 id="Exercise-27">Ejercicio 27</h2>
+    <p><em>Cargar y actualizar el diccionario de cumpleaños desde un archivo JSON.</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 import 'dart:convert';
 
 void main() {
@@ -1192,15 +1252,14 @@ void birthdays(String txt) {
     print("\nOK. Bye bye!\n");
   }
 }</code></pre>
+    </details>
 
-  </details>
-
-  <!-- Ejercicio 28 -->
-  <h2 id="Exercise-28">Ejercicio 28</h2>
-  <p><em>Cargar el <a href="birthdays.json">JSON de cumpleaños</a>, extraer los meses y contar cuántos nacimientos por mes.</em></p>
-  <details>
-    <summary>Solución</summary>
-    <pre><code class="language-dart">import 'dart:io';
+    <!-- Ejercicio 28 -->
+    <h2 id="Exercise-28">Ejercicio 28</h2>
+    <p><em>Cargar el <a href="birthdays.json">JSON de cumpleaños</a>, extraer los meses y contar cuántos nacimientos por mes.</em></p>
+    <details>
+      <summary>Solución</summary>
+      <pre><code class="language-dart">import 'dart:io';
 import 'dart:convert';
 // Necesitarías agregar: `intl: ^0.19.0` en pubspec.yaml para usar DateFormat
 // Pero para mantenerlo simple, extraemos el mes manualmente:
@@ -1232,14 +1291,8 @@ void main() {
     print("$month: $count");
   });
 }</code></pre>
-  </details>
-
-  <script>
-  fetch("menu.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("menu").innerHTML = data;
-    });
-</script>
+    </details>
+  </div>
+  </div>
 </body>
 </html>
