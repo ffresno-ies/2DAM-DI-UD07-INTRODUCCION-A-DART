@@ -1205,8 +1205,8 @@ void main() {
     <h3 class="text-xl font-semibold text-gray-800 mb-2">Ejercicio 1: Estadísticas de calificaciones</h3>
     <p class="text-gray-700 mb-3">
       Escribe una función que reciba una lista de calificaciones (enteros entre 0 y 10) y devuelva un mapa con:
-      <code>"promedio"</code>, <code>"aprobados"</code> (≥5) y <code>"maxima"</code>.
-      Si la lista está vacía, devuelve valores por defecto seguros.
+      <code>"promedio de notas"</code>, <code>"Nº de aprobados"</code> (≥5) y <code>"Nota máxima"</code>.
+      Si la lista está vacía, devuelve valores 0.
     </p>
     <h3 class="text-xl font-semibold text-gray-800 mb-2">Solución:</h3>
     <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
@@ -1309,53 +1309,66 @@ void main() {
     <h3 class="text-xl font-semibold text-gray-800 mb-2">Ejercicio 2: Gestión de una biblioteca</h3>
     <p class="text-gray-700 mb-3">
       Crea las clases <code>Libro</code> y <code>Biblioteca</code>. La biblioteca debe permitir:
-      añadir libros, buscar por título (ignorando mayúsculas), y obtener una lista de libros disponibles.
-      Usa encapsulamiento y métodos seguros.
+      añadir libros y obtener una lista de libros disponibles.
     </p>
  <h3 class="text-xl font-semibold text-gray-800 mb-2">Solución:</h3>
     <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
 <pre>class Libro {
   final String titulo;
   final String autor;
-  bool _disponible = true;
+  final int anio;
 
-  Libro(this.titulo, this.autor);
-
-  bool get disponible => _disponible;
-  void prestar() => _disponible = false;
-  void devolver() => _disponible = true;
+  Libro({
+    required this.titulo,
+    required this.autor,
+    required this.anio,
+  });
 
   @override
-  String toString() => "Libro: \$titulo por \$autor";
+  String toString() => '"$titulo" de $autor ($anio)';
 }
 
 class Biblioteca {
-  final List&lt;Libro&gt; _libros = [];
+  final String nombre;
+  final List<Libro> _libros = [];
+
+  Biblioteca({required this.nombre});
 
   void agregarLibro(Libro libro) {
     _libros.add(libro);
+    print('Libro agregado: $libro');
   }
 
-  Libro? buscarPorTitulo(String titulo) {
-    return _libros.firstWhere(
-      (libro) => libro.titulo.toLowerCase() == titulo.toLowerCase(),
-      orElse: () => null,
-    );
-  }
+  List<Libro> get librosDisponibles => List.unmodifiable(_libros);
 
-  List&lt;Libro&gt; get disponibles => _libros.where((l) => l.disponible).toList();
+  void mostrarLibros() {
+    if (_libros.isEmpty) {
+      print('No hay libros disponibles en "$nombre".');
+      return;
+    }
+    print('\n📚 Libros disponibles en "$nombre":');
+    for (var i = 0; i < _libros.length; i++) {
+      print('  ${i + 1}. ${_libros[i]}');
+    }
+  }
 }
 
 void main() {
-  var biblio = Biblioteca();
-  biblio.agregarLibro(Libro("Cien años de soledad", "García Márquez"));
-  biblio.agregarLibro(Libro("1984", "Orwell"));
+  final biblioteca = Biblioteca(nombre: 'Biblioteca Central');
 
-  var libro = biblio.buscarPorTitulo("1984");
-  if (libro != null) libro.prestar();
+  final libros = [
+    Libro(titulo: 'Cien Años de Soledad', autor: 'Gabriel García Márquez', anio: 1967),
+    Libro(titulo: 'Don Quijote de la Mancha', autor: 'Miguel de Cervantes', anio: 1605),
+    Libro(titulo: 'La Sombra del Viento', autor: 'Carlos Ruiz Zafón', anio: 2001),
+  ];
 
-  print("Disponibles: \${biblio.disponibles.length}");
-  // Disponibles: 1
+  for (var libro in libros) {
+    biblioteca.agregarLibro(libro);
+  }
+
+  biblioteca.mostrarLibros();
+
+  print('\nTotal de libros disponibles: ${biblioteca.librosDisponibles.length}');
 }</pre>
     </div>
 
