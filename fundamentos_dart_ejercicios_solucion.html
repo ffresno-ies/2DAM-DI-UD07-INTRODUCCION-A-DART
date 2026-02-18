@@ -1,0 +1,139 @@
+
+  <!-- Ejercicio 1: Sin clases -->
+  <div class="border-l-4 border-blue-500 pl-4 mb-8">
+    <h3 class="text-xl font-semibold text-gray-800 mb-2">Ejercicio 1: Estadísticas de calificaciones</h3>
+    <p class="text-gray-700 mb-3">
+      Escribe una función que reciba una lista de calificaciones (enteros entre 0 y 10) y devuelva un mapa con:
+      <code>"promedio de notas"</code>, <code>"Nº de aprobados"</code> (≥5) y <code>"Nota máxima"</code>.
+      Si la lista está vacía, devuelve valores 0.
+    </p>
+    <h3 class="text-xl font-semibold text-gray-800 mb-2">Solución:</h3>
+    <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+
+    </div>
+
+    <p class="text-sm text-gray-600 mt-2">
+      <strong>Conceptos aplicados:</strong> listas, funciones, operadores de colección (<code>where</code>, <code>reduce</code>), nulabilidad, mapas.
+    </p>
+   
+
+  <p class="text-gray-700 mb-4">
+    Esta línea define una función en Dart. Vamos a desglosar cada parte para entender su significado y propósito.
+  </p>
+
+  <div class="space-y-5">
+    <div>
+      <p class="text-gray-700 mt-2">
+        La función <code>analizarCalificaciones</code> indica que devuelve un <strong>mapa</strong> (diccionario) donde:
+      </p>
+      <ul class="list-disc pl-5 text-gray-700 mt-2 space-y-1">
+        <li>Las <strong>claves</strong> son siempre de tipo <code>String</code> (ej. <code>"promedio"</code>, <code>"aprobados"</code>).</li>
+        <li>Los <strong>valores</strong> pueden ser de <strong>cualquier tipo</strong> (<code>int</code>, <code>double</code>, <code>null</code>, etc.), gracias a la palabra clave <code>dynamic</code>.</li>
+      </ul>
+      <p class="text-gray-700 mt-2">
+        Se usa <code>dynamic</code> aquí porque el mapa mezcla tipos distintos:
+        <code>promedio</code> es un <code>double</code>, <code>aprobados</code> es un <code>int</code>,
+        y <code>maxima</code> puede ser <code>int</code> o <code>null</code>.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="bg-blue-50 p-3 rounded mt-6">
+    <p class="text-blue-800 text-sm">
+      <strong>💡 NOTA::</strong>  
+      <em>Este código lo ha mejorado la IA después de mi codificación como humano donde he recorrido la lista para hacer los cálculos solicitados. <br>No te preocuopes si no hubieras sido capaz de hacerlo así. Yo tampoco. Conocer todas las funciones asociadas a los objetos de lenguaje es prácticamente imposible y más si estamos empezando. Lo importante es entender la lógica y el flujo del programa.</em>
+    </p>
+  </div>
+
+  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Alternativa más segura (opcional)</h3>
+  <p class="text-gray-700 mb-2">
+    En lugar de usar <code>Map&lt;String, dynamic&gt;</code>, puedes crear una clase para mejorar la seguridad de tipos:
+  </p>
+  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>class ReporteCalificaciones {
+  final double promedio;
+  final int aprobados;
+  final int? maxima;
+  ReporteCalificaciones(this.promedio, this.aprobados, this.maxima);
+}</pre>
+  </div>
+  <p class="text-gray-700 text-sm italic">
+    Esto evita el uso de <code>dynamic</code> y permite al compilador detectar errores antes de ejecutar el programa.
+  </p>
+  </div>
+
+  <!-- Ejercicio 2: Con clases -->
+  <div class="border-l-4 border-purple-500 pl-4">
+    <h3 class="text-xl font-semibold text-gray-800 mb-2">Ejercicio 2: Gestión de una biblioteca</h3>
+    <p class="text-gray-700 mb-3">
+      Crea las clases <code>Libro</code> y <code>Biblioteca</code>. La biblioteca debe permitir:
+      añadir libros y obtener una lista de libros disponibles.
+    </p>
+ <h3 class="text-xl font-semibold text-gray-800 mb-2">Solución:</h3>
+    <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
+<pre>class Libro {
+  final String titulo;
+  final String autor;
+  final int anio;
+
+  Libro({
+    required this.titulo,
+    required this.autor,
+    required this.anio,
+  });
+
+  @override
+  String toString() => '"$titulo" de $autor ($anio)';
+}
+
+class Biblioteca {
+  final String nombre;
+  final List<Libro> _libros = [];
+
+  Biblioteca({required this.nombre});
+
+  void agregarLibro(Libro libro) {
+    _libros.add(libro);
+    print('Libro agregado: $libro');
+  }
+
+  List<Libro> get librosDisponibles => List.unmodifiable(_libros);
+
+  void mostrarLibros() {
+    if (_libros.isEmpty) {
+      print('No hay libros disponibles en "$nombre".');
+      return;
+    }
+    print('\n📚 Libros disponibles en "$nombre":');
+    for (var i = 0; i < _libros.length; i++) {
+      print('  ${i + 1}. ${_libros[i]}');
+    }
+  }
+}
+
+void main() {
+  final biblioteca = Biblioteca(nombre: 'Biblioteca Central');
+
+  final libros = [
+    Libro(titulo: 'Cien Años de Soledad', autor: 'Gabriel García Márquez', anio: 1967),
+    Libro(titulo: 'Don Quijote de la Mancha', autor: 'Miguel de Cervantes', anio: 1605),
+    Libro(titulo: 'La Sombra del Viento', autor: 'Carlos Ruiz Zafón', anio: 2001),
+  ];
+
+  for (var libro in libros) {
+    biblioteca.agregarLibro(libro);
+  }
+
+  biblioteca.mostrarLibros();
+
+  print('\nTotal de libros disponibles: ${biblioteca.librosDisponibles.length}');
+}</pre>
+    </div>
+
+    <p class="text-sm text-gray-600 mt-2">
+      <strong>Conceptos aplicados:</strong> clases, encapsulamiento (propiedad privada con <code>_</code>), getters, métodos, colecciones, nulabilidad.
+    </p>
+  </div>
+
+ 

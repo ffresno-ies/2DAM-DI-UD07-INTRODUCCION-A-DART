@@ -51,7 +51,7 @@
               <li><a href="#nulabilidad" class="hover:text-indigo-600 transition">9. Nulabilidad</a></li>
               <li><a href="#clases-poo" class="hover:text-indigo-600 transition">10. Clases y Programación Orientada a Objetos (POO)</a></li>
               
-              <li><a href="#ejercicios" class="hover:text-indigo-600 transition">11. Ejercicios prácticos</a></li>
+              <li><a href="#ejercicios" class="hover:text-indigo-600 transition">11. Ejercicios prácticos (TAREA)</a></li>
         </ul>
       </nav>
 
@@ -1190,7 +1190,7 @@ void main() {
 
 <!-- Section 14 -->
 <section id="ejercicios" class="mb-12 bg-white p-6 rounded-lg shadow">
-  <h2 class="text-2xl font-bold text-indigo-600 mb-4">11. Ejercicios Prácticos
+  <h2 class="text-2xl font-bold text-indigo-600 mb-4">11. Ejercicios Prácticos (TAREA)
      <a href="#tabla-contenidos" class="ml-2 text-indigo-500 hover:text-indigo-700" title="Volver a la tabla de contenidos">
       <i class="fas fa-arrow-up text-sm"></i>
     </a>
@@ -1198,6 +1198,11 @@ void main() {
 
   <p class="text-gray-700 mb-6">
     A continuación, dos ejercicios que aplican los conceptos vistos: estructuras de control, funciones, colecciones, nulabilidad y programación orientada a objetos. Son ejemplos avanzados. 
+    
+  </p>
+  <p class="text-gray-700 mb-6">
+    Estos son los dos ejercicios que habrá que entregar en las prácticas. 
+    
   </p>
 
   <!-- Ejercicio 1: Sin clases -->
@@ -1208,174 +1213,28 @@ void main() {
       <code>"promedio de notas"</code>, <code>"Nº de aprobados"</code> (≥5) y <code>"Nota máxima"</code>.
       Si la lista está vacía, devuelve valores 0.
     </p>
-    <h3 class="text-xl font-semibold text-gray-800 mb-2">Solución:</h3>
-    <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
-<pre>// Función que analiza una lista de calificaciones numéricas (enteros)
-// y devuelve un mapa con estadísticas resumidas.
-Map<String, dynamic> analizarCalificaciones(List<int> calificaciones) {
-  // Caso especial: si la lista está vacía, devolvemos valores por defecto
-  if (calificaciones.isEmpty) {
-    return {
-      "promedio": 0,   // No hay promedio real, así que 0
-      "aprobados": 0,  // Ningún estudiante aprobado
-      "maxima": 0      // No hay calificación máxima
-    };
-  }
+  </div>  
 
-  // Contamos cuántas calificaciones son >= 5 (consideradas "aprobadas")
-  // - `where((n) => n >= 5)` filtra solo los elementos que cumplen la condición
-  // - `.length` cuenta cuántos elementos quedaron después del filtro
-  int aprobados = calificaciones.where((n) => n >= 5).length;
 
-  // Calculamos el promedio:
-  // - `reduce((a, b) => a + b)` suma todos los elementos de la lista
-  // - Luego dividimos entre el número total de calificaciones
-  double promedio = calificaciones.reduce((a, b) => a + b) / calificaciones.length;
 
-  // Encontramos la calificación más alta:
-  // - `reduce` compara cada par de elementos y se queda con el mayor
-  // - `a > b ? a : b` es un operador ternario: si a > b, devuelve a; si no, b
-  int maxima = calificaciones.reduce((a, b) => a > b ? a : b);
-
-  // Devolvemos un mapa con las tres estadísticas calculadas
-  return {
-    "promedio": promedio,
-    "aprobados": aprobados,
-    "maxima": maxima
-  };
-}
-
-void main() {
-  List<int> notas = [8, 7, 5, 9, 4];
-  var resultado = analizarCalificaciones(notas);
-  print(resultado);
-}
-</pre>
-    </div>
-
-    <p class="text-sm text-gray-600 mt-2">
-      <strong>Conceptos aplicados:</strong> listas, funciones, operadores de colección (<code>where</code>, <code>reduce</code>), nulabilidad, mapas.
-    </p>
-   
-
-  <p class="text-gray-700 mb-4">
-    Esta línea define una función en Dart. Vamos a desglosar cada parte para entender su significado y propósito.
-  </p>
-
-  <div class="space-y-5">
-    <div>
-      <p class="text-gray-700 mt-2">
-        La función <code>analizarCalificaciones</code> indica que devuelve un <strong>mapa</strong> (diccionario) donde:
-      </p>
-      <ul class="list-disc pl-5 text-gray-700 mt-2 space-y-1">
-        <li>Las <strong>claves</strong> son siempre de tipo <code>String</code> (ej. <code>"promedio"</code>, <code>"aprobados"</code>).</li>
-        <li>Los <strong>valores</strong> pueden ser de <strong>cualquier tipo</strong> (<code>int</code>, <code>double</code>, <code>null</code>, etc.), gracias a la palabra clave <code>dynamic</code>.</li>
-      </ul>
-      <p class="text-gray-700 mt-2">
-        Se usa <code>dynamic</code> aquí porque el mapa mezcla tipos distintos:
-        <code>promedio</code> es un <code>double</code>, <code>aprobados</code> es un <code>int</code>,
-        y <code>maxima</code> puede ser <code>int</code> o <code>null</code>.
-      </p>
-    </div>
-
-  </div>
-
-  <div class="bg-blue-50 p-3 rounded mt-6">
-    <p class="text-blue-800 text-sm">
-      <strong>💡 NOTA::</strong>  
-      <em>Este código lo ha mejorado la IA después de mi codificación como humano donde he recorrido la lista para hacer los cálculos solicitados. <br>No te preocuopes si no hubieras sido capaz de hacerlo así. Yo tampoco. Conocer todas las funciones asociadas a los objetos de lenguaje es prácticamente imposible y más si estamos empezando. Lo importante es entender la lógica y el flujo del programa.</em>
-    </p>
-  </div>
-
-  <h3 class="text-lg font-semibold text-gray-800 mt-6 mb-2">Alternativa más segura (opcional)</h3>
-  <p class="text-gray-700 mb-2">
-    En lugar de usar <code>Map&lt;String, dynamic&gt;</code>, puedes crear una clase para mejorar la seguridad de tipos:
-  </p>
-  <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
-<pre>class ReporteCalificaciones {
-  final double promedio;
-  final int aprobados;
-  final int? maxima;
-  ReporteCalificaciones(this.promedio, this.aprobados, this.maxima);
-}</pre>
-  </div>
-  <p class="text-gray-700 text-sm italic">
-    Esto evita el uso de <code>dynamic</code> y permite al compilador detectar errores antes de ejecutar el programa.
-  </p>
-  </div>
-
-  <!-- Ejercicio 2: Con clases -->
-  <div class="border-l-4 border-purple-500 pl-4">
+   <div class="border-l-4 border-blue-500 pl-4 mb-8">
     <h3 class="text-xl font-semibold text-gray-800 mb-2">Ejercicio 2: Gestión de una biblioteca</h3>
     <p class="text-gray-700 mb-3">
       Crea las clases <code>Libro</code> y <code>Biblioteca</code>. La biblioteca debe permitir:
       añadir libros y obtener una lista de libros disponibles.
     </p>
- <h3 class="text-xl font-semibold text-gray-800 mb-2">Solución:</h3>
-    <div class="bg-gray-800 text-green-400 p-4 rounded my-3 font-mono text-sm overflow-x-auto">
-<pre>class Libro {
-  final String titulo;
-  final String autor;
-  final int anio;
-
-  Libro({
-    required this.titulo,
-    required this.autor,
-    required this.anio,
-  });
-
-  @override
-  String toString() => '"$titulo" de $autor ($anio)';
-}
-
-class Biblioteca {
-  final String nombre;
-  final List<Libro> _libros = [];
-
-  Biblioteca({required this.nombre});
-
-  void agregarLibro(Libro libro) {
-    _libros.add(libro);
-    print('Libro agregado: $libro');
-  }
-
-  List<Libro> get librosDisponibles => List.unmodifiable(_libros);
-
-  void mostrarLibros() {
-    if (_libros.isEmpty) {
-      print('No hay libros disponibles en "$nombre".');
-      return;
-    }
-    print('\n📚 Libros disponibles en "$nombre":');
-    for (var i = 0; i < _libros.length; i++) {
-      print('  ${i + 1}. ${_libros[i]}');
-    }
-  }
-}
-
-void main() {
-  final biblioteca = Biblioteca(nombre: 'Biblioteca Central');
-
-  final libros = [
-    Libro(titulo: 'Cien Años de Soledad', autor: 'Gabriel García Márquez', anio: 1967),
-    Libro(titulo: 'Don Quijote de la Mancha', autor: 'Miguel de Cervantes', anio: 1605),
-    Libro(titulo: 'La Sombra del Viento', autor: 'Carlos Ruiz Zafón', anio: 2001),
-  ];
-
-  for (var libro in libros) {
-    biblioteca.agregarLibro(libro);
-  }
-
-  biblioteca.mostrarLibros();
-
-  print('\nTotal de libros disponibles: ${biblioteca.librosDisponibles.length}');
-}</pre>
+ 
     </div>
-
-    <p class="text-sm text-gray-600 mt-2">
-      <strong>Conceptos aplicados:</strong> clases, encapsulamiento (propiedad privada con <code>_</code>), getters, métodos, colecciones, nulabilidad, <code>firstWhere</code> con <code>orElse</code>.
+<div class="bg-blue-50 p-3 rounded mt-6">
+    <p class="text-blue-800 text-sm">
+      <strong>💡 NOTA::</strong>  
+      <em>Prueba a hacer tu mismo el ejercicio y luego comprueba con la IA que versión posiblemente optimizada te pueda ofrecer.</em>
     </p>
   </div>
+  <br>
+    
+  </div>
+
 </section>
 
  
