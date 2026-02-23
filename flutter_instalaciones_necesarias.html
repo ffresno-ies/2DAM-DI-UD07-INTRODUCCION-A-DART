@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,38 +13,33 @@
     body {
       font-family: 'Inter', sans-serif;
     }
+
     .link-card {
-      @apply underline decoration-blue-500/50 hover:decoration-blue-700/70
-             text-blue-600 hover:text-blue-800 
-             dark:text-blue-400 dark:hover:text-blue-300
-             decoration-solid
-             transition-colors duration-200;
-            font-size: 1.2em;
-            font-weight: 600;
+      @apply underline decoration-blue-500/50 hover:decoration-blue-700/70 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 decoration-solid transition-colors duration-200;
+      font-size: 1.2em;
+      font-weight: 600;
     }
-    
   </style>
 </head>
+
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 min-h-screen">
-    <div id="menu"></div>
+  <div id="menu"></div>
 
   <div class="max-w-4xl mx-auto px-4 py-10">
 
-<h1 class="text-3xl font-bold text-center mb-4">Flutter - Instalación en Mac</h1>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/aBRZ_cEsdLo?si=A8mRunlqL1gVk8h3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <h1 class="text-3xl font-bold text-center mb-4">Flutter - Instalación en Mac</h1>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/aBRZ_cEsdLo?si=kjFyoGUfVDeC5qgA"
+      title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
     <!-- Logo Flutter + Dart -->
     <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-10">
-      <img 
-        src="https://storage.googleapis.com/cms-storage-bucket/6a07d8a62f4308d2b854.svg"
-        alt="Flutter Logo"
-        class="w-48 md:w-64"
-      />
-      <img 
+      <img src="https://storage.googleapis.com/cms-storage-bucket/6a07d8a62f4308d2b854.svg" alt="Flutter Logo"
+        class="w-48 md:w-64" />
+      <img
         src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Dart_programming_language_logo.svg/1280px-Dart_programming_language_logo.svg.png"
-        alt="Dart Logo"
-        class="w-48 md:w-64"
-      />
+        alt="Dart Logo" class="w-48 md:w-64" />
     </div>
 
     <!-- Título principal -->
@@ -55,17 +51,20 @@
       <h2 class="text-xl font-semibold mb-4">Info y hojas de atajos recomendadas:</h2>
       <ul class="space-y-2">
         <li>
-          <a href="https://github.com/Klerith/mas-talento/blob/main/dart/dart-que-es.pdf" class="link-card" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Klerith/mas-talento/blob/main/dart/dart-que-es.pdf" class="link-card"
+            target="_blank" rel="noopener noreferrer">
             📄 ¿Qué es Dart? ↗
           </a>
         </li>
         <li>
-          <a href="https://github.com/Klerith/mas-talento/blob/main/dart/dart-cheat-sheet.pdf" class="link-card" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Klerith/mas-talento/blob/main/dart/dart-cheat-sheet.pdf" class="link-card"
+            target="_blank" rel="noopener noreferrer">
             📄 Guías de atajos - Dart ↗
           </a>
         </li>
         <li>
-          <a href="https://github.com/Klerith/mas-talento/blob/main/flutter/flutter-cheat-sheet.pdf" class="link-card" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/Klerith/mas-talento/blob/main/flutter/flutter-cheat-sheet.pdf" class="link-card"
+            target="_blank" rel="noopener noreferrer">
             📄 Guías de atajos - Flutter ↗
           </a>
         </li>
@@ -82,8 +81,9 @@
             Sistema de control de versiones. Esencial para colaborar y guardar el historial de tu código.
           </p>
           <p class="mt-2">Abre una terminal y teclea:<br>
-            <pre class="bg-gray-800 text-green-400 p-3 rounded mt-1 text-sm overflow-x-auto">git --version</pre>
-          Si te devuelve un número de versión, ya lo tienes instalado. Si no, instálalo desde el enlace anterior. Después, configura tu nombre y correo:
+          <pre class="bg-gray-800 text-green-400 p-3 rounded mt-1 text-sm overflow-x-auto">git --version</pre>
+          Si te devuelve un número de versión, ya lo tienes instalado. Si no, instálalo desde el enlace anterior.
+          Después, configura tu nombre y correo:
           </p>
           <pre class="bg-gray-800 text-green-400 p-3 rounded mt-1 text-sm overflow-x-auto">
 git config --global user.name "Tu nombre"
@@ -91,63 +91,76 @@ git config --global user.email "Tu correo"</pre>
         </li>
 
         <li>
-          <a href="https://github.com/" class="link-card" target="_blank" rel="noopener noreferrer">Crear cuenta en GitHub ↗</a>
+          <a href="https://github.com/" class="link-card" target="_blank" rel="noopener noreferrer">Crear cuenta en
+            GitHub ↗</a>
           <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
             Plataforma para alojar y compartir tu código. Es el estándar de la industria para desarrollo colaborativo.
           </p>
         </li>
 
         <li>
-          <a href="https://code.visualstudio.com/" class="link-card" target="_blank" rel="noopener noreferrer">VSCode - Visual Studio Code ↗</a>
+          <a href="https://code.visualstudio.com/" class="link-card" target="_blank" rel="noopener noreferrer">VSCode -
+            Visual Studio Code ↗</a>
           <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
             Editor de código ligero, rápido y altamente personalizable. Ideal para desarrollar con Flutter y Dart.
           </p>
         </li>
 
         <li>
-          <a href="https://www.postman.com/downloads/" class="link-card" target="_blank" rel="noopener noreferrer">Postman ↗</a>
+          <a href="https://www.postman.com/downloads/" class="link-card" target="_blank"
+            rel="noopener noreferrer">Postman ↗</a>
           <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
             Herramienta para probar APIs REST. Muy útil si tu app se comunica con un backend.
           </p>
         </li>
 
         <li>
-          <a href="https://developer.android.com/studio" class="link-card" target="_blank" rel="noopener noreferrer">Android Studio ↗</a>
+          <a href="https://developer.android.com/studio" class="link-card" target="_blank"
+            rel="noopener noreferrer">Android Studio ↗</a>
           <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
-            Entorno oficial para desarrollar apps Android. Flutter lo necesita para compilar y ejecutar en dispositivos Android.
+            Entorno oficial para desarrollar apps Android. Flutter lo necesita para compilar y ejecutar en dispositivos
+            Android.
           </p>
         </li>
 
         <li>
-          Sólo Mac: <a href="https://apps.apple.com/ca/app/xcode/id497799835?mt=12" class="link-card" target="_blank" rel="noopener noreferrer">xCode ↗</a>
+          Sólo Mac: <a href="https://apps.apple.com/ca/app/xcode/id497799835?mt=12" class="link-card" target="_blank"
+            rel="noopener noreferrer">xCode ↗</a>
           <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
             Herramienta oficial de Apple para desarrollar apps iOS. Necesaria para compilar y probar en iPhone o iPad.
           </p>
         </li>
 
         <li>
-          <a href="https://docs.flutter.dev/get-started/install" class="link-card" target="_blank" rel="noopener noreferrer">Flutter SDK ↗</a>
+          <a href="https://docs.flutter.dev/get-started/install" class="link-card" target="_blank"
+            rel="noopener noreferrer">Flutter SDK ↗</a>
           <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
-            El kit de desarrollo de Flutter. Incluye todo lo necesario para construir apps multiplataforma desde una sola base de código. En esta instalación en la carpeta bin se encuentran las herramientas flutter y <strong>también de Dart.</strong>
+            El kit de desarrollo de Flutter. Incluye todo lo necesario para construir apps multiplataforma desde una
+            sola base de código. En esta instalación en la carpeta bin se encuentran las herramientas flutter y
+            <strong>también de Dart.</strong>
           </p>
         </li>
 
         <li>
           <a href="https://nodejs.org/en/" class="link-card" target="_blank" rel="noopener noreferrer">NodeJS ↗</a>
           <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
-            Entorno de ejecución JavaScript. Requerido para algunas herramientas de desarrollo modernas y dependencias de frontend.
+            Entorno de ejecución JavaScript. Requerido para algunas herramientas de desarrollo modernas y dependencias
+            de frontend.
           </p>
         </li>
 
         <li>
-          <a href="https://www.docker.com/" class="link-card" target="_blank" rel="noopener noreferrer">Docker Desktop ↗</a>
+          <a href="https://www.docker.com/" class="link-card" target="_blank" rel="noopener noreferrer">Docker Desktop
+            ↗</a>
           <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
-            Plataforma para crear, desplegar y ejecutar aplicaciones en contenedores. Útil para simular entornos de producción.
+            Plataforma para crear, desplegar y ejecutar aplicaciones en contenedores. Útil para simular entornos de
+            producción.
           </p>
         </li>
 
         <li>
-          <a href="https://tableplus.com/" class="link-card" target="_blank" rel="noopener noreferrer">Table Plus ↗</a> ← Visor de base de datos
+          <a href="https://tableplus.com/" class="link-card" target="_blank" rel="noopener noreferrer">Table Plus ↗</a>
+          ← Visor de base de datos
           <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
             Cliente moderno y visual para administrar bases de datos (PostgreSQL, MySQL, SQLite, etc.).
           </p>
@@ -159,17 +172,28 @@ git config --global user.email "Tu correo"</pre>
     <section class="mb-12">
       <h2 class="text-2xl font-bold mb-6">Extensiones recomendadas para VSCode</h2>
       <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <li><a href="https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.activitusbar" class="link-card" target="_blank" rel="noopener noreferrer">Activitus Bar ↗</a></li>
-        <li><a href="https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens" class="link-card" target="_blank" rel="noopener noreferrer">Error Lens ↗</a></li>
-        <li><a href="https://marketplace.visualstudio.com/items?itemName=quicktype.quicktype" class="link-card" target="_blank" rel="noopener noreferrer">Paste JSON as Code ↗</a></li>
-        <li><a href="https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments" class="link-card" target="_blank" rel="noopener noreferrer">Better Comments ↗</a></li>
-        <li><a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.terminal" class="link-card" target="_blank" rel="noopener noreferrer">Terminal ↗</a></li>
-        <li><a href="https://marketplace.visualstudio.com/items?itemName=Nash.awesome-flutter-snippets" class="link-card" target="_blank" rel="noopener noreferrer">Awesome Flutter Snippets ↗</a></li>
-        <li><a href="https://marketplace.visualstudio.com/items?itemName=FelixAngelov.bloc" class="link-card" target="_blank" rel="noopener noreferrer">Bloc ↗</a></li>
-        <li><a href="https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code" class="link-card" target="_blank" rel="noopener noreferrer">Dart Language ↗</a></li>
-        <li><a href="https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter" class="link-card" target="_blank" rel="noopener noreferrer">Flutter Support ↗</a></li>
-        <li><a href="https://marketplace.visualstudio.com/items?itemName=jeroen-meijer.pubspec-assist" class="link-card" target="_blank" rel="noopener noreferrer">Pubspec Assist ↗</a></li>
-        <li><a href="https://marketplace.visualstudio.com/items?itemName=Tyriar.lorem-ipsum" class="link-card" target="_blank" rel="noopener noreferrer">Lorem ipsum ↗</a></li>
+        <li><a href="https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.activitusbar" class="link-card"
+            target="_blank" rel="noopener noreferrer">Activitus Bar ↗</a></li>
+        <li><a href="https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens" class="link-card"
+            target="_blank" rel="noopener noreferrer">Error Lens ↗</a></li>
+        <li><a href="https://marketplace.visualstudio.com/items?itemName=quicktype.quicktype" class="link-card"
+            target="_blank" rel="noopener noreferrer">Paste JSON as Code ↗</a></li>
+        <li><a href="https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments" class="link-card"
+            target="_blank" rel="noopener noreferrer">Better Comments ↗</a></li>
+        <li><a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.terminal" class="link-card"
+            target="_blank" rel="noopener noreferrer">Terminal ↗</a></li>
+        <li><a href="https://marketplace.visualstudio.com/items?itemName=Nash.awesome-flutter-snippets"
+            class="link-card" target="_blank" rel="noopener noreferrer">Awesome Flutter Snippets ↗</a></li>
+        <li><a href="https://marketplace.visualstudio.com/items?itemName=FelixAngelov.bloc" class="link-card"
+            target="_blank" rel="noopener noreferrer">Bloc ↗</a></li>
+        <li><a href="https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code" class="link-card"
+            target="_blank" rel="noopener noreferrer">Dart Language ↗</a></li>
+        <li><a href="https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter" class="link-card"
+            target="_blank" rel="noopener noreferrer">Flutter Support ↗</a></li>
+        <li><a href="https://marketplace.visualstudio.com/items?itemName=jeroen-meijer.pubspec-assist" class="link-card"
+            target="_blank" rel="noopener noreferrer">Pubspec Assist ↗</a></li>
+        <li><a href="https://marketplace.visualstudio.com/items?itemName=Tyriar.lorem-ipsum" class="link-card"
+            target="_blank" rel="noopener noreferrer">Lorem ipsum ↗</a></li>
       </ul>
     </section>
 
@@ -178,7 +202,8 @@ git config --global user.email "Tu correo"</pre>
       <h2 class="text-2xl font-bold mb-4">Confguraciones en VSCode:</h2>
       <ul class="space-y-4">
         <li>
-          <p>En VStudio Code -> Menú View -> Command Palette (Command + Shift + P) buscamos: Open user settings (JSON) y añadimos este fragmento de configuración: </p>
+          <p>En VStudio Code -> Menú View -> Command Palette (Command + Shift + P) buscamos: Open user settings (JSON) y
+            añadimos este fragmento de configuración: </p>
           <pre class="bg-gray-800 text-gray-200 p-4 rounded text-sm overflow-x-auto">
 "[dart]": {
     "editor.formatOnSave": false,
@@ -191,25 +216,28 @@ git config --global user.email "Tu correo"</pre>
 }</pre>
         </li>
         <li>
-          <a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme" class="link-card" target="_blank" rel="noopener noreferrer">Iconos: Material Icon Theme  ↗</a>
+          <a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme" class="link-card"
+            target="_blank" rel="noopener noreferrer">Iconos: Material Icon Theme ↗</a>
           <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">
             Iconos temáticos para archivos y carpetas en VSCode. Mejora la legibilidad del explorador de archivos.
           </p>
         </li>
         <li>
-          <a href="https://cursos.devtalles.com/pages/mas-talento" class="link-card" target="_blank" rel="noopener noreferrer">Otras hojas de atajos ↗</a>
+          <a href="https://cursos.devtalles.com/pages/mas-talento" class="link-card" target="_blank"
+            rel="noopener noreferrer">Otras hojas de atajos ↗</a>
         </li>
       </ul>
     </section>
 
   </div>
-<script>
-  fetch("menu.html")
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById("menu").innerHTML = data;
-    });
-</script>
+  <script>
+    fetch("menu.html")
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("menu").innerHTML = data;
+      });
+  </script>
 
 </body>
+
 </html>
