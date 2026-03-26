@@ -14,10 +14,47 @@
       font-family: 'Inter', sans-serif;
     }
 
+    .section-title {
+      font-size: 1.875rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 1rem;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      background: linear-gradient(to right, #eff6ff, #dbeafe);
+      border-left: 4px solid #3b82f6;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      color: #1f2937;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .section-title {
+        background: linear-gradient(to right, rgba(30, 58, 138, 0.3), rgba(30, 27, 102, 0.3));
+        color: #e5e7eb;
+      }
+    }
+
     .link-card {
-      @apply underline decoration-blue-500/50 hover:decoration-blue-700/70 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 decoration-solid transition-colors duration-200;
+      text-decoration: underline;
+      text-decoration-color: rgba(59, 130, 246, 0.5);
+      color: #2563eb;
       font-size: 1.2em;
       font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .link-card:hover {
+      text-decoration-color: rgba(29, 78, 216, 0.7);
+      color: #1e40af;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .link-card {
+        color: #60a5fa;
+      }
+      .link-card:hover {
+        color: #93c5fd;
+      }
     }
   </style>
 </head>
@@ -34,7 +71,7 @@
     
 
     <!-- ¿Qué es Flutter? -->
-    <h1 class="text-3xl font-bold text-center mb-8">¿Qué es Flutter?</h1>
+    <h1 class="section-title mb-8">¿Qué es Flutter?</h1>
 
     <section class="mb-8">
       <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-6">
@@ -126,14 +163,14 @@
       </div>
     </section>
 
-    <h1 class="text-3xl font-bold text-center mb-4">Flutter - Preparación del entorno</h1>
+    <h1 class="section-title">Paso 1. Flutter - Preparación del entorno</h1>
     <p class="text-lg text-center mb-8">En este vídeo se muestra como preparar nuestro entorno de programación en local para desarrollar aplicaciones en Flutter. Puedes ponerme a 2x :)</p>
 
     <section class="mb-12 flex justify-center">
       <a target="_blank" href="https://www.youtube.com/watch?v=EbD3GB5aWWE"><img src="images/flutter_preparacion_entorno.jpg" alt="Preparación del entorno" class="rounded-lg shadow-lg w-full max-w-3xl"></a>
     </section>
     <!-- 2do video -->
-    <h1 class="text-3xl font-bold text-center mb-4">2da App en Flutter con navegación</h1>
+    <h1 class="section-title">Paso 2.Segunda App en Flutter con navegación</h1>
      <section class="mb-12 flex justify-center">
       <a target="_blank" href="https://youtu.be/DN_SAXfSGCs"><img src="images/2da_app_flutter_img.png" alt="2da App en Flutter" class="rounded-lg shadow-lg w-full max-w-3xl"></a>
     </section>
@@ -155,7 +192,7 @@
       <a href="images/infografia_2da_app.png" target="_blank" rel="noopener noreferrer"
         class="group flex items-center justify-between gap-4 rounded-xl border border-blue-200 dark:border-blue-700 bg-blue-50 dark:bg-blue-900/30 px-5 py-4 transition hover:shadow-md hover:-translate-y-0.5">
         <div class="flex items-center gap-3">
-          <span class="text-2xl" aria-hidden="true">📦</span>
+          <img src="images/infografia_2da_app.png" alt="Infografía 2da App en Flutter" class="w-10 h-10 object-cover rounded">
           <div>
             <p class="font-semibold text-gray-800 dark:text-gray-100">Infografía 2da App en Flutter</p>
             <p class="text-sm text-gray-600 dark:text-gray-300">Ver info</p>
@@ -167,11 +204,14 @@
       </a>
     </div>
 
-
+<h1 class="section-title">Paso 3.Solicita Github Copilot para Estudiantes (Manual)</h1>
+     <section class="mb-12 flex justify-center">
+      <a target="_blank" href="archivos/manual_github_copilot_estudiantes.docx"><img src="images/solicita_github.png" alt="Solicita Github Copilot para Estudiantes (Manual)" class="rounded-lg shadow-lg w-full max-w-3xl"></a>
+    </section>
 
    
 
-    <h1 class="text-3xl font-bold text-center mb-4">Flutter - Documentación adicional - Apuntes</h1>
+    <h1 class="section-title">Flutter - Documentación adicional - Apuntes</h1>
 
     <!-- Hojas de atajos -->
     <section class="mb-12">
@@ -210,7 +250,7 @@
     </section>
 
      <!-- Documentación -->
-    <h1 class="text-3xl font-bold text-center mb-4">Flutter - Documentación adicional</h1>
+    <h1 class="section-title">Flutter - Documentación adicional</h1>
 
     <!-- Hojas de atajos -->
     <section class="mb-12">
